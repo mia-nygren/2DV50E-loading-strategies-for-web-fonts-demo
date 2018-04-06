@@ -1,0 +1,19 @@
+{
+    "name": "serverpush-serviceworkers-example",
+    "version": "1.0.0",
+    "description": "HTTP/2 Server Push and Service Workers example",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "url": "https://github.com/yldio/serverpush-serviceworkers-example",
+        "type": "git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.14.1",
+        "https": "^1.0.0",
+        "spdy": "^3.4.4"
+    }
+}
