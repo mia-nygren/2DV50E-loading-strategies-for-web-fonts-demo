@@ -30,7 +30,7 @@ let pushFont = (response, fontSrc) => {
 
 let pushStyles = (response) => {
     // Note: we cached pushed files for 5 minutes (testing purposes)
-    response.push('/styles/fonts.css', {
+    response.push('/styles/merriweather/fonts.css', {
         response: {
             'Content-Type': 'text/css'
                 // 'Cache-Control': 'max-age=300'
@@ -49,9 +49,12 @@ app.get('/critical-foft-push', function(request, response) {
     if (!request.isSpdy) {
         return response.end('SPDY is off. We cannot use Server Push :(')
     }
-
+    pushFont(response, 'fonts/merriweather-v19-latin-regular-subset.woff2')
     pushFont(response, 'fonts/merriweather-v19-latin-regular.woff2')
-        //pushFont(response, 'assets/fonts/montserrat-v12-latin-regular.woff')
+    pushFont(response, 'fonts/merriweather-v19-latin-italic.woff2')
+    pushFont(response, 'fonts/merriweather-v19-latin-700.woff2')
+    pushFont(response, 'fonts/merriweather-v19-latin-700italic.woff2')
+
 
     pushStyles(response)
         /*
