@@ -19,7 +19,10 @@ let pushFont = (response, fontSrc) => {
     let font = fs.readFileSync('assets/' + fontSrc);
     // push woff2
     response.push('/' + fontSrc, {
-        response: { 'Content-Type': 'font/woff2' }
+        response: {
+            'Content-Type': 'font/woff2',
+            'Cache-Control': 'no-cache' // must revalidate before using a cached copy
+        }
     }, (err, stream) => {
         if (err) return
         stream.end(font)
@@ -49,13 +52,13 @@ app.get('/critical-foft-push', function(request, response) {
     if (!request.isSpdy) {
         return response.end('SPDY is off. We cannot use Server Push :(')
     }
-    pushFont(response, 'fonts/merriweather-v19-latin-regular-subset.woff2')
-    pushFont(response, 'fonts/merriweather-v19-latin-regular.woff2')
-    pushFont(response, 'fonts/merriweather-v19-latin-italic.woff2')
-    pushFont(response, 'fonts/merriweather-v19-latin-700.woff2')
-    pushFont(response, 'fonts/merriweather-v19-latin-700italic.woff2')
+    // pushFont(response, 'fonts/merriweather-v19-latin-regular-subset.woff2')
+    // pushFont(response, 'fonts/merriweather-v19-latin-regular.woff2')
+    // pushFont(response, 'fonts/merriweather-v19-latin-italic.woff2')
+        //pushFont(response, 'fonts/merriweather-v19-latin-700.woff2')
+        //pushFont(response, 'fonts/merriweather-v19-latin-700italic.woff2')
 
-
+    console.log(request)
     pushStyles(response)
         /*
         // push app.js    
@@ -70,10 +73,13 @@ app.get('/critical-foft-push', function(request, response) {
             }
             stream.end(appScript);
         }); */
-
+        
+    //  res.header('Link', '</images/big.jpeg>; rel=prefetch');  Look up what header does
+    // rel="preload" as="font" crossorigin="crossorigin" type="font/woff2"
     response.writeHead(200, {
-        'Content-Type': 'text/html'
-            // 'Cache-Control': 'max-age=300'
+        'Content-Type': 'text/html',
+        'Cache-Control': 'no-cache', //'max-age=300'
+        'Link':'</fonts/merriweather-v19-latin-regular.woff2>;  rel="preload"; as="font"; crossorigin="crossorigin"; type="font/woff2"; nopush'
     });
 
     const indexPath = path.join(__dirname, '/public/critical-foft-push.html');
@@ -97,6 +103,12 @@ app.use(express.static('assets'));
 
 const server = spdy.createServer(options, app);
 
+
 server.listen(3000, () => {
     console.log(`Server started on port ${server.address().port}`);
 });
+// server.listen(8000, '127.0.0.1', function() {
+//     server.close(function() {
+//         server.listen(8001, '192.168.1.79')
+//     })
+// }

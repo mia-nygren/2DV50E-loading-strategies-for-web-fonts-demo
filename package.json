@@ -4,7 +4,9 @@
     "description": "HTTP/2 Server Push and Service Workers example",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon index.js"
+        "postinstall": "node ./conf/quickfix.js",
+        "nodemon": "node ./node_modules/nodemon/bin/nodemon.js index.js",
+        "dev": "node index.js"
     },
     "repository": {
         "url": "https://github.com/yldio/serverpush-serviceworkers-example",
@@ -14,6 +16,6 @@
     "dependencies": {
         "express": "^4.14.1",
         "https": "^1.0.0",
-        "spdy": "^3.4.4"
+        "spdy": "^3.4.7"
     }
 }
