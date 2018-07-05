@@ -1,15 +1,15 @@
 {
     "name": "serverpush-serviceworkers-example",
     "version": "1.0.0",
-    "description": "HTTP/2 Server Push and Service Workers example",
+    "description": "Font loading strategies ",
     "main": "index.js",
     "scripts": {
-        "postinstall": "node ./conf/quickfix.js",
-        "nodemon": "node ./node_modules/nodemon/bin/nodemon.js index.js",
+        "postinstall": "node ./src/conf/quickfix.js",
+        "nodemon": "nodemon index.js",
         "dev": "node index.js"
     },
     "repository": {
-        "url": "https://github.com/yldio/serverpush-serviceworkers-example",
+        "url": "https://github.com/mia-nygren/font-loading-strategies",
         "type": "git"
     },
     "license": "MIT",
