@@ -8,7 +8,7 @@ const MERRIWEATHER = require('../constants').MERRIWEATHER // "merriweather" // T
 //const styles = fs.readFileSync(stylesPath);
 
 // This is needed for every route...so, refactor  - bryt ut
-const cssFile = fs.readFileSync('assets/styles/' + MERRIWEATHER + '/fonts.css'); // this path is wrong...but works??
+
 
 // console.log('stylesPATH = ' + stylesPath)
 
@@ -18,10 +18,12 @@ const cssFile = fs.readFileSync('assets/styles/' + MERRIWEATHER + '/fonts.css');
 var pushStyles = require('../utils/push').pushStyles
 
 // critical-foft-push, use PUSH_STREAM if possible
-router.get('/critical-foft-push', function(request, response) {
+router.get('/critical-foft-push', function(req, res) {
 
-    if (!request.isSpdy) {
-        return response.end('SPDY is off. We cannot use Server Push :(')
+    var cssFontFile = req.app.get('cssFontFile')
+
+    if (!req.isSpdy) {
+        return res.end('SPDY is off. We cannot use Server Push :(')
     }
     // pushFont(response, 'fonts/merriweather-v19-latin-regular-subset.woff2')
     // pushFont(response, 'fonts/merriweather-v19-latin-regular.woff2')
@@ -29,18 +31,18 @@ router.get('/critical-foft-push', function(request, response) {
     //pushFont(response, 'fonts/merriweather-v19-latin-700.woff2')
     //pushFont(response, 'fonts/merriweather-v19-latin-700italic.woff2')
 
-   pushStyles(response, cssFile, '/styles/merriweather/fonts.css')
+   pushStyles(res, cssFontFile, '/styles/merriweather/fonts.css')
            
     //  res.header('Link', '</images/big.jpeg>; rel=prefetch');  Look up what header does and why writeHead is different...
     // rel="preload" as="font" crossorigin="crossorigin" type="font/woff2"
-    response.writeHead(200, {
+    res.writeHead(200, {
         'Content-Type': 'text/html',
         'Cache-Control': 'no-cache', //'max-age=300'
         'Link':'</fonts/merriweather-v19-latin-regular.woff2>;  rel="preload"; as="font"; crossorigin="crossorigin"; type="font/woff2"; nopush'
     });
 
     const indexPath = path.join(__dirname, '../public/critical-foft-push.html');
-    fs.createReadStream(indexPath).pipe(response);
+    fs.createReadStream(indexPath).pipe(res);
     return;
 });
 

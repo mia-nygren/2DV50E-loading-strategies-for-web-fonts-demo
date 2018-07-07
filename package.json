@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "postinstall": "node ./src/conf/quickfix.js",
-        "nodemon": "nodemon index.js",
-        "dev": "node index.js"
+        "nodemon": "nodemon app/index.js",
+        "dev": "node app/index.js"
     },
     "repository": {
         "url": "https://github.com/mia-nygren/font-loading-strategies",
