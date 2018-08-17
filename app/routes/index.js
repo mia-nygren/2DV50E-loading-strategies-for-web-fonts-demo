@@ -1,7 +1,7 @@
 const fs = require('fs'),
     path = require('path'),
-    express = require('express')
-var router = express.Router()
+    express = require('express'),
+    router = express.Router()
 
 // Welcome route
 
