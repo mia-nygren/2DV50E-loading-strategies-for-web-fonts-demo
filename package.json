@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "postinstall": "node ./src/conf/quickfix.js",
-        "nodemon": "nodemon app/index.js",
-        "dev": "node app/index.js"
+        "start": "nodemon app/index.js",
+        "dev": "node app/index.js",
+        "eslint": "eslint"
     },
     "repository": {
         "url": "https://github.com/mia-nygren/font-loading-strategies",
@@ -17,5 +18,8 @@
         "express": "^4.14.1",
         "https": "^1.0.0",
         "spdy": "^3.4.7"
+    },
+    "devDependencies": {
+        "eslint": "^5.3.0"
     }
 }

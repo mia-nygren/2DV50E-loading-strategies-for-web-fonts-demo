@@ -1,5 +1,5 @@
-const MERRIWEATHER = 'merriweather'
+// const MERRIWEATHER = 'merriweather'
 
-module.exports = {
-    MERRIWEATHER
-}
+// module.exports = {
+//     MERRIWEATHER
+// }

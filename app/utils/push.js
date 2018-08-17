@@ -1,9 +1,9 @@
-const fs = require('fs'),
-    path = require('path')
+const fs = require('fs')
+    // path = require('path') - TODO might need path for cleaner paths?
 
-let pushFont = (response, fontSrc) => {
+const pushFont = (response, fontSrc) => {
 
-    let font = fs.readFileSync('assets/' + fontSrc);
+    const font = fs.readFileSync('assets/' + fontSrc);
     // push woff2
     response.push('/' + fontSrc, {
         response: {
@@ -15,12 +15,11 @@ let pushFont = (response, fontSrc) => {
         stream.end(font)
     })
 
-    // push woff 
+    // push woff
 }
 
 
-
-let pushStyles = (response, file, pushPath) => {
+const pushStyles = (response, file, pushPath) => {
     // get the fs here!
     // take in the location of the styles
 
@@ -39,6 +38,6 @@ let pushStyles = (response, file, pushPath) => {
 }
 
 module.exports = {
-    pushFont, 
+    pushFont,
     pushStyles
-} 
+}

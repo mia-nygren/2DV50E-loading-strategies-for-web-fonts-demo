@@ -1,14 +1,15 @@
 const spdy = require('spdy'),
     fs = require('fs'),
-    path = require('path'),
-    express = require('express')
-app = express();
+    // path = require('path'),
+    express = require('express'),
+    app = express();
 
 // Requrie the routes
 app.use(require('./routes/index'))
-app.use(require('./routes/cfoft_push'))
+app.use(require('./routes/critical-foft-push'))
+app.use(require('./routes/critical-foft-preload-header'))
 
-// Set variables that can be used in all routes 
+// Set variables that can be used in all routes
 const cssFontFile = fs.readFileSync('./app/assets/styles/merriweather/fonts.css'); // this path is wrong...but works?? // refactor
 app.set('cssFontFile', cssFontFile)
 //app.set('merriweather_regular')
