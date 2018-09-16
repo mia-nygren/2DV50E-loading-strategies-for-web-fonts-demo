@@ -1,0 +1,10 @@
+.imgWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: .8em;
+  grid-auto-rows: minmax(100px, auto)
+}
+
+.imgWrapper img {
+  width:100%;
+}
