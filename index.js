@@ -9,6 +9,7 @@ const app = express();
 // Require the routes
 app.use(require('./app/routes'))
 app.use(require('./app/routes/critical-foft-push'))
+app.use(require('./app/routes/critical-foft-push-variable-font'))
 app.use(require('./app/routes/critical-foft-preload-header'))
 app.use(require('./app/routes/no-font-loading-strategy'))
 
