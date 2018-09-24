@@ -1,0 +1,22 @@
+/* Source Sans subset - latin */
+
+@font-face {
+    font-family: 'SourceSansSubset';
+    font-style: normal;
+    font-weight: 400;
+    /* font-display:block; */
+    src: url('/variable-fonts/SourceSansVariable-Roman-subset.woff2') format('woff2-variations'); /* what about just a regular woff subset instead of the font-variation? */
+    unicode-range: U+20, U+41-5A, U+61-7A;
+}
+
+/* Source Sans -regular  */
+
+@font-face {
+    font-family: 'SourceSans';
+    font-style: normal;
+    font-weight: 400;
+    /* font-display:block; */
+    src: url('/variable-fonts/SourceSansVariable-Roman.ttf') format('woff2-variations'); /* TODO - should it be woff2? */
+    /* url('/fonts/merriweather-v19-latin-regular.woff2') format('woff2'); */
+}
+
