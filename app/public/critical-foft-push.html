@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <link rel="stylesheet" type="text/css" href="/styles/merriweather/fonts.css">
+  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
   <!-- add subset font files here?? -->
   <!-- <link rel="preload" as="font" type="font/woff2" crossorigin="crossorigin" href="/fonts/merriweather-v19-latin-regular-subset.woff2"  > -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <!-- <noscript><style>
         body.noJS {
             /*If the client doesn't have javascript enabled, load the font normally */
-            font-family: Merriweather, sans-serif;
+            font-family: SourceSansPro, sans-serif;
         }
     </style></noscript> -->
   <style>
     .fonts .main {
-      font-family: Merriweather, sans-serif;
+      font-family: SourceSansPro, sans-serif;
       /* If I don't define font-family before js is parsed if will use fallback font first??  */
       /* font-family: cursive; */
       color:black;
       /* font-size:5em; */
     }
     .subset-loaded .main {
-      font-family: MerriweatherSubset, cursive;
+      font-family: SourceSansProSubset, cursive;
       font-weight: 400;
       font-style: normal;
       color:rgb(17, 0, 255);
@@ -32,7 +32,7 @@
     }
 
     .fonts-loaded .main {
-      font-family: Merriweather, sans-serif;
+      font-family: SourceSansPro, sans-serif;
       font-weight: 400;
       font-style: normal;
       color:green;
@@ -40,18 +40,18 @@
     }
 
     /* .fonts-loaded strong {
-      font-family: Merriweather, sans-serif;
+      font-family: SourceSansPro, sans-serif;
       font-weight: 700;
     }
 
     .fonts-loaded em {
-      font-family: Merriweather, sans-serif;
+      font-family: SourceSansPro, sans-serif;
       font-style: italic;
     }
 
     .fonts-loaded strong em,
     .fonts-loaded em strong {
-      font-family: Merriweather, sans-serif;
+      font-family: SourceSansPro, sans-serif;
       font-weight: 700;
       font-style: italic;
     } */
@@ -63,13 +63,13 @@
       if ("fonts" in document) {
         console.log('fonts are in document')
 
-        document.fonts.load("1em MerriweatherSubset").then(function () {
+        document.fonts.load("1em SourceSansProSubset").then(function () {
           document.documentElement.className += " subset-loaded";
           Promise.all([
-            document.fonts.load("400 1em Merriweather"),
-            document.fonts.load("700 1em Merriweather"),
-            document.fonts.load("italic 1em Merriweather"),
-            document.fonts.load("italic 700 1em Merriweather")
+            document.fonts.load("400 1em SourceSansPro"),
+            document.fonts.load("700 1em SourceSansPro"),
+            document.fonts.load("italic 1em SourceSansPro"),
+            document.fonts.load("italic 700 1em SourceSansPro")
           ]).then(function () {
             document.documentElement.className += " fonts-loaded";
             // Optimization for Repeat Views
