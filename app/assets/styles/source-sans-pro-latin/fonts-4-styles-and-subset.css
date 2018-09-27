@@ -9,7 +9,7 @@
 
 /* source-sans-pro-regular - latin */
 @font-face {
-  font-family: 'SourceSansPro';
+font-family: 'SourceSansPro';
   font-style: normal;
   font-weight: 400;
   src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
