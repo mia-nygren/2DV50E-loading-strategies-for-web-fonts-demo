@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="fonts" lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="/styles/grid.css">
+    <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .fonts .main {
+        font-family: SourceSans, serif;
+        /* If I don't define font-family before js is parsed if will use fallback font first??  */
+        /* font-family: cursive; */
+        color:black;
+        /* font-size:5em; */
+      }
+      </style>
 </head>
 <body>
+    <div class="main">
     <h1>This page demonstrates x different font loading strategies. </h1>
     <p> Compare them by testing them locally, with the network throttling profile set to 4G.
         *Details about that here* and reveal the difference in loading speed. </p>
     <p> The typeface that was used for tesing is called Merriweather.</p>
+    </div>
 </body>
 </html>
