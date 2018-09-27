@@ -1,84 +1,85 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html class="fonts" lang="en">
 <head>
-    <title>CFOFT Preload link header</title>
+    <title>CFOFT Preload HTTP link header</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="/styles/grid.css">
     <link rel="stylesheet" type="text/css" href="/styles/main.css">
-    <link rel="stylesheet" type="text/css" href="/styles/merriweather/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/styles/grid.css">
+    <!--  Preload is in Link response header see (routes/critical-foft-preload.js), the stylesheet still needs to be referenced here. -->
+    <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <!--  No need to link to the subset fontfile here since preload is in Link response header
-       see (routes/critical-foft-preload.js) -->
-      <noscript><style>
-        body.noJS {
-            /*If the client doesn't have javascript enabled, load the font normally */
-            font-family: Merriweather, sans-serif;
-        }
-    </style></noscript>
+
     <style>
-        .fonts-stage-subset {
-            font-family: MerriweatherSubset, sans-serif;
-            font-weight: 400;
-            font-style: normal;
+        .fonts .main {
+          font-family: SourceSansPro, sans-serif;
+          /* If I don't define font-family before js is parsed if will use fallback font first??  */
+          /* font-family: cursive; */
+          color:black;
+          /* font-size:5em; */
+        }
+        .subset-loaded .main {
+          font-family: SourceSansProSubset, cursive;
+          font-weight: 400;
+          font-style: normal;
+          color:rgb(17, 0, 255);
+          font-size:3em;
         }
 
-        .fonts-stage-1 body {
-            font-family: MerriweatherSubset, sans-serif;
-            font-weight: 400;
-            font-style: normal;
+        .fonts-loaded .main {
+          font-family: SourceSansPro, sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          color:green;
+          font-size:1em;
         }
 
-        .fonts-stage-2 body {
-            font-family: Merriweather, sans-serif;
+        /* .fonts-loaded strong {
+          font-family: SourceSansPro, sans-serif;
+          font-weight: 700;
         }
 
-        .fonts-stage-2 strong {
-            font-family: MerriweatherBold, sans-serif;
-            font-weight: 700;
+        .fonts-loaded em {
+          font-family: SourceSansPro, sans-serif;
+          font-style: italic;
         }
 
-        .fonts-stage-2 em {
-            font-family: MerriweatherItalic, sans-serif;
-            font-style: italic;
-        }
+        .fonts-loaded strong em,
+        .fonts-loaded em strong {
+          font-family: SourceSansPro, sans-serif;
+          font-weight: 700;
+          font-style: italic;
+        } */
+      </style>
+      <script>
+        // CSS Font Loading API //
+        (function () {
+          "use strict";
+          if ("fonts" in document) {
+            console.log('fonts are in document')
 
-        .fonts-stage-2 strong em,
-        .fonts-stage-2 em strong {
-            font-family: MerriweatherBoldItalic, sans-serif;
-            font-weight: 700;
-            font-style: italic;
-        }
-    </style>
-     <script>
-         // CSS Font Loading API //
-    (function () {
-      "use strict";
-      if ("fonts" in document) {
-        console.log('fonts are in document')
-
-        document.fonts.load("1em MerriweatherSubset").then(function () {
-          document.documentElement.className += " subset-loaded";
-          Promise.all([
-            document.fonts.load("400 1em Merriweather"),
-            document.fonts.load("700 1em Merriweather"),
-            document.fonts.load("italic 1em Merriweather"),
-            document.fonts.load("italic 700 1em Merriweather")
-          ]).then(function () {
-            document.documentElement.className += " fonts-loaded";
-            // Optimization for Repeat Views
-            sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
-          });
-        });
-      }
-    })();
+            document.fonts.load("1em SourceSansProSubset").then(function () {
+              document.documentElement.className += " subset-loaded";
+              Promise.all([
+                document.fonts.load("400 1em SourceSansPro"),
+                document.fonts.load("700 1em SourceSansPro"),
+                document.fonts.load("italic 1em SourceSansPro"),
+                document.fonts.load("italic 700 1em SourceSansPro")
+              ]).then(function () {
+                document.documentElement.className += " fonts-loaded";
+                // Optimization for Repeat Views
+                //sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+              });
+            });
+          }
+        })();
       </script>
 
 </head>
 
 
 <body>
-    <h1>Critical FOFT with Preload in response Link header</h1>  <!-- class="fonts-stage-subset"> -->
+  <div class="main">
+    <h1>Critical FOFT with Preload in response Link header</h1>
     <p>This is a regular font style with font-weight 400.</p>
     <p><strong>This is bold 700 text.</strong></p>
     <p><em>This is emphasized italic</em></p>
@@ -95,6 +96,7 @@
 
       INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
     </p>
+  </div>
 
     <div class="imgWrapper">
       <img src="/images/run.jpg" alt="run" />

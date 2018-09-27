@@ -1,91 +1,106 @@
 <!doctype html>
-<html lang="en">
+<html class="fonts" lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="/styles/grid.css">
+  <!-- <link rel="preload" as="style" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css" type="text/css"> -->
+   <!-- The stylesheet has to be link normally too so that the browser knows that it will be used directly -->
+  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
+
 	<title>Critical FOFT Preload</title>
 	<style>
-  .subset-loaded {
-      font-family: MerriweatherSubset, sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .fonts-loaded body {
-      font-family: Merriweather, sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .fonts-stage-2fonts-loaded body {
-      font-family: Merriweather, sans-serif;
-    }
-
-    .fonts-loaded strong {
-      font-family: Merriweather, sans-serif;
-      font-weight: 700;
-    }
-
-    .fonts-loaded em {
-      font-family: Merriweather, sans-serif;
-      font-style: italic;
-    }
-
-    .fonts-loaded strong em,
-    .fonts-loaded em strong {
-      font-family: Merriweather, sans-serif;
-      font-weight: 700;
-      font-style: italic;
-    }
-	</style>
-	<script>
-		    // CSS Font Loading API //
-      (function () {
-      "use strict";
-      if ("fonts" in document) {
-        console.log('fonts are in document')
-
-        document.fonts.load("1em MerriweatherSubset").then(function () {
-          document.documentElement.className += " subset-loaded";
-          Promise.all([
-            document.fonts.load("400 1em Merriweather"),
-            document.fonts.load("700 1em Merriweather"),
-            document.fonts.load("italic 1em Merriweather"),
-            document.fonts.load("italic 700 1em Merriweather")
-          ]).then(function () {
-            document.documentElement.className += " fonts-loaded";
-            // Optimization for Repeat Views
-            sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
-          });
-        });
+      .fonts .main {
+        font-family: SourceSansPro, sans-serif;
+        /* If I don't define font-family before js is parsed if will use fallback font first??  */
+        /* font-family: cursive; */
+        color:black;
+        /* font-size:5em; */
       }
-    })();
-	</script>
+      .subset-loaded .main {
+        font-family: SourceSansProSubset, cursive;
+        font-weight: 400;
+        font-style: normal;
+        color:rgb(17, 0, 255);
+        font-size:3em;
+      }
+
+      .fonts-loaded .main {
+        font-family: SourceSansPro, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color:green;
+        font-size:1em;
+      }
+
+      /* .fonts-loaded strong {
+        font-family: SourceSansPro, sans-serif;
+        font-weight: 700;
+      }
+
+      .fonts-loaded em {
+        font-family: SourceSansPro, sans-serif;
+        font-style: italic;
+      }
+
+      .fonts-loaded strong em,
+      .fonts-loaded em strong {
+        font-family: SourceSansPro, sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      } */
+    </style>
+    <script>
+      // CSS Font Loading API //
+      (function () {
+        "use strict";
+        if ("fonts" in document) {
+          console.log('fonts are in document')
+
+          document.fonts.load("1em SourceSansProSubset").then(function () {
+            document.documentElement.className += " subset-loaded";
+            Promise.all([
+              document.fonts.load("400 1em SourceSansPro"),
+              document.fonts.load("700 1em SourceSansPro"),
+              document.fonts.load("italic 1em SourceSansPro"),
+              document.fonts.load("italic 700 1em SourceSansPro")
+            ]).then(function () {
+              document.documentElement.className += " fonts-loaded";
+              // Optimization for Repeat Views
+              //sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+            });
+          });
+        }
+      })();
+    </script>
 </head>
+
 <body>
-	<h1>Critical FOFT Preload</h1>
-  <p>This is a regular font style with font-weight 400.</p>
-  <p><strong>This is bold 700 text.</strong></p>
-  <p><em>This is emphasized italic</em></p>
-  <p><strong><em>This is heavier and emphasized text.</em></strong></p>
-  <p> just making sure in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat
-    imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc
-    mi ipsum faucibus vitae aliquet nec ullamcorper
-    sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl
-    pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare
-    suspendisse sed
-    nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper
-    dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec
-    massa sapien
+    <div class="main">
+    <h1>Critical FOFT Preload</h1>
+    <p>This is a regular font style with font-weight 400.</p>
+    <p><strong>This is bold 700 text.</strong></p>
+    <p><em>This is emphasized italic</em></p>
+    <p><strong><em>This is heavier and emphasized text.</em></strong></p>
+    <p> just making sure in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat
+      imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc
+      mi ipsum faucibus vitae aliquet nec ullamcorper
+      sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl
+      pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare
+      suspendisse sed
+      nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper
+      dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec
+      massa sapien
 
-    INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
-  </p>
-
-  <div class="imgWrapper">
-    <img src="/images/run.jpg" alt="run" />
-    <img src="/images/car.jpg" alt="car" />
-    <img src="/images/cycle.jpg" alt="cycle" />
-  </div>
-
+      INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
+    </p>
+    </div>
+    <div class="imgWrapper">
+        <img src="/images/car.jpg" alt="car" />
+        <img src="/images/cycle.jpg" alt="cycle" />
+      <img src="/images/run.jpg" alt="run" />
+    </div>
   </body>
-</html>
+  </html>
