@@ -4,9 +4,8 @@
     "description": "Font loading strategies ",
     "main": "index.js",
     "scripts": {
-        "postinstall": "node ./src/conf/quickfix.js",
-        "start": "nodemon app/index.js",
-        "dev": "node app/index.js",
+        "start": "node index.js",
+        "dev": "nodemon index.js",
         "eslint": "eslint"
     },
     "repository": {
