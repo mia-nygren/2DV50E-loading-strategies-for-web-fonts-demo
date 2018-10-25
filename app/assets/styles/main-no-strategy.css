@@ -1,0 +1,17 @@
+html {
+  background:#EDEDED;
+  font-size: 1.3em;
+}
+
+.main {
+  max-width:30em;
+  padding: 3em 1em 5em 1em;
+}
+
+.imgWrapper img {
+  background:#bdbdbd;
+}
+
+.fonts .main{
+  font-family: 'SourceSansPro', serif;
+}
