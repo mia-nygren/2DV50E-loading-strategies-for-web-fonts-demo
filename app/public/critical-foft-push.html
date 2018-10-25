@@ -6,57 +6,23 @@
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
   <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
+  <!-- TODO <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin> -->
   <!-- add subset font files here?? -->
-  <!-- <link rel="preload" as="font" type="font/woff2" crossorigin="crossorigin" href="/fonts/merriweather-v19-latin-regular-subset.woff2"  > -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <!-- <noscript><style>
-        body.noJS {
-            /*If the client doesn't have javascript enabled, load the font normally */
-            font-family: SourceSansPro, sans-serif;
-        }
-    </style></noscript> -->
-  <style>
-    .fonts .main {
-      font-family: SourceSansPro, sans-serif;
-      /* If I don't define font-family before js is parsed if will use fallback font first??  */
-      /* font-family: cursive; */
-      color:black;
-      /* font-size:5em; */
-    }
-    .subset-loaded .main {
-      font-family: SourceSansProSubset, cursive;
-      font-weight: 400;
-      font-style: normal;
-      color:rgb(17, 0, 255);
-      font-size:3em;
-    }
-
-    .fonts-loaded .main {
-      font-family: SourceSansPro, sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      color:green;
-      font-size:1em;
-    }
-
-    /* .fonts-loaded strong {
-      font-family: SourceSansPro, sans-serif;
-      font-weight: 700;
-    }
-
-    .fonts-loaded em {
-      font-family: SourceSansPro, sans-serif;
-      font-style: italic;
-    }
-
-    .fonts-loaded strong em,
-    .fonts-loaded em strong {
-      font-family: SourceSansPro, sans-serif;
-      font-weight: 700;
-      font-style: italic;
-    } */
-  </style>
   <script>
+    // Log elements
+    let getNumberOfChildNodes = (nodeElement) => {
+      return nodeElement.childNodes.length
+    }
+    let children = document.documentElement.childNodes
+    let arr = Array.from(children)
+      let count = 0
+       arr.forEach(child => {
+        count += getNumberOfChildNodes(child)
+     });
+
+    console.log(`children ${count}`);
+
     // CSS Font Loading API //
     (function () {
       "use strict";
@@ -79,7 +45,6 @@
       }
     })();
   </script>
-
 </head>
 
 <body>
@@ -101,12 +66,8 @@
 
     INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
   </p>
+
 </div>
-  <div class="imgWrapper">
-      <img src="/images/car.jpg" alt="car" />
-      <img src="/images/cycle.jpg" alt="cycle" />
-    <img src="/images/run.jpg" alt="run" />
-  </div>
 
 </body>
 </html>

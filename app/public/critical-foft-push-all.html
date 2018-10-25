@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html class="fonts" lang="en">
+<html class="fonts">
 <head>
-  <title>Critical Foft H2 Push variable</title>
+  <title>Critical Foft H2 Push</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <link rel="stylesheet" type="text/css" href="/styles/variable-fonts.css">
+  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2"  type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2"  type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2"  type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2"  type="font/woff2" crossorigin>
   <!-- add subset font files here?? -->
-  <!-- <link rel="preload" as="font" type="font/woff2" crossorigin="crossorigin" href="/fonts/merriweather-v19-latin-regular-subset.woff2"  > -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <script>
     // CSS Font Loading API //
@@ -16,13 +20,13 @@
       if ("fonts" in document) {
         console.log('fonts are in document')
 
-        document.fonts.load("1em SourceSansSubset").then(function () {
-          document.documentElement.className += " subset-loaded"; // TODO - add the source sans other files!!!
+        document.fonts.load("1em SourceSansProSubset").then(function () {
+          document.documentElement.className += " subset-loaded";
           Promise.all([
-            document.fonts.load("400 1em SourceSans"),
-            document.fonts.load("bold 1em SourceSans"),
-            document.fonts.load("italic 1em SourceSans"),
-            document.fonts.load("italic 700 1em SourceSans")
+            document.fonts.load("400 1em SourceSansPro"),
+            document.fonts.load("700 1em SourceSansPro"),
+            document.fonts.load("italic 1em SourceSansPro"),
+            document.fonts.load("italic 700 1em SourceSansPro")
           ]).then(function () {
             document.documentElement.className += " fonts-loaded";
             // Optimization for Repeat Views
@@ -32,7 +36,6 @@
       }
     })();
   </script>
-
 </head>
 
 <body>
@@ -54,11 +57,12 @@
 
     INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
   </p>
-  </div>
+</div>
   <div class="imgWrapper">
+      <img src="/images/run.jpg" alt="run" />
       <img src="/images/car.jpg" alt="car" />
       <img src="/images/cycle.jpg" alt="cycle" />
-    <img src="/images/run.jpg" alt="run" />
   </div>
+
 </body>
 </html>
