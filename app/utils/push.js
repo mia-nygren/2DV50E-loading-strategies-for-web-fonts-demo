@@ -8,17 +8,14 @@ const pushFont = (response, fontSrc) => {
     response.push('/' + fontSrc, {
         response: {
             'Content-Type': 'font/woff2',
-            'Cache-Control': 'no-cache' // must revalidate before using a cached copy !! TODO - change this
+            'Cache-Control': 'max-age=300' // 'no-cache' --> must revalidate before using a cached copy, but we need push cache?
         }
     }, (err, stream) => {
         if (err) return
         stream.end(font)
     })
 
-    // push woff
 }
-
-
 
 const pushStyles = (response, filePath) => {
   // get the fs here!
