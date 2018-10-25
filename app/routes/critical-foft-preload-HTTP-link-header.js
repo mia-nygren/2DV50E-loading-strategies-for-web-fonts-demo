@@ -12,15 +12,16 @@ const fs = require('fs'),
 const sourceSansProSubsetFilePath = '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2'
 const cssFilePath = '/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css'
 
-router.get('/critical-foft-preload-header', function(req, res) {
+const link = `<${sourceSansProSubsetFilePath}>; rel=preload; as=font; crossorigin=crossorigin; type=font/woff2; nopush, <${cssFilePath}>; rel=preload; as=style; nopush`
+router.get('/critical-foft-preload-HTTP-link-header', function(req, res) {
 
     // The response head includes Link, where the regular font is preloaded and CSS file with @font-face blocks
     res.writeHead(200, {
         'Content-Type': 'text/html',
-        'Cache-Control': 'no-cache', //'max-age=300'
-        'Link':`<${sourceSansProSubsetFilePath}>; rel=preload; as=font; crossorigin=crossorigin; type=font/woff2; nopush, <${cssFilePath}>; rel=preload; as=style; nopush`
+        'Cache-Control': 'max-age=300', //'max-age=300'
+        'Link': link
     });
-
+    // console.log('This is liink:' + link);
     const indexPath = path.join(__dirname, '../public/critical-foft-preload-header.html');
     fs.createReadStream(indexPath).pipe(res);
     return;
