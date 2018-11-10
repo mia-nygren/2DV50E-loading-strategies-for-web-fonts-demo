@@ -3,11 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Critical styles -->
+  <style>
+  /* source-sans-pro-regular-subset - latin */
+  @font-face {
+    font-family: 'SourceSansProSubset';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.zopfli.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
+  }
+  /* source-sans-pro-regular - latin */
+  @font-face {
+  font-family: 'SourceSansPro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
+  }
+  /* source-sans-pro-italic - latin */
+  @font-face {
+    font-family: 'SourceSansPro';
+    font-style: italic;
+    font-weight: 400;
+    src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
+  }
+  /* source-sans-pro-700 - latin */
+  @font-face {
+    font-family: 'SourceSansPro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
+  }
+  /* source-sans-pro-700italic - latin */
+  @font-face {
+    font-family: 'SourceSansPro';
+    font-style: italic;
+    font-weight: 700;
+    src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
+  }
+
+  /* Apply fonts */
+      .fonts .main {
+      font-family: sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      /* If I don't define font-family before js is parsed if will use fallback font first??  */
+      /* font-family: cursive; */
+      color:black;
+    }
+
+    .subset-loaded .main {
+      font-family: SourceSansProSubset, cursive;  /* TODO change cursive to sans-serif*/
+      color:rgb(17, 0, 255);
+    }
+
+    .fonts-loaded .main {
+      font-family: SourceSansPro, sans-serif;
+      color:green;
+    }
+  </style>
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <link rel="preload" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css" as="style" type="text/css">
-  <!-- The stylesheet has to be link normally too so that the browser knows that it will be used directly -->
-  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
+
+  <!-- Preloading all web fonts -->
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2"  type="font/woff2" crossorigin>

@@ -13,7 +13,7 @@ router.get('/critical-foft-push', function(req, res) {
     // Push Source Sans Pro Regular subset
    pushFont(res, 'fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2')
 
-   pushStyles(res, 'styles/source-sans-pro-latin/fonts-4-styles-and-subset.css')
+   // pushStyles(res, 'styles/source-sans-pro-latin/fonts-4-styles-and-subset.css')
    // pushScript(res, 'js/font-loading.js')
    pushStyles(res, 'styles/main.css')
    pushStyles(res, 'styles/grid.css')

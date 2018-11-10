@@ -53,9 +53,11 @@
 
       /* Apply fonts */
           .fonts .main {
-          font-family: sans-serif; /* Fallback font */
+          font-family: sans-serif;
           font-weight: 400;
           font-style: normal;
+          /* If I don't define font-family before js is parsed if will use fallback font first??  */
+          /* font-family: cursive; */
           color:black;
         }
 
@@ -71,11 +73,13 @@
       </style>
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <!-- Preloading the rest of the web fonts  -->
+  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2"  type="font/woff2" crossorigin>
+  <!-- add subset font files here?? -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <script>
     // CSS Font Loading API //
