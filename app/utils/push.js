@@ -17,6 +17,22 @@ const pushFont = (response, fontSrc) => {
 
 }
 
+const pushScript = (response, filePath) => {
+  const scriptFilePath = path.join(__dirname, '../assets/' + filePath)
+  const scriptFile = fs.readFileSync(scriptFilePath)
+  console.log(`should push script`);
+
+  response.push('/' + filePath, {
+    response: {
+      'Content-Type': 'application/javascript',
+      'Cache-Control': 'max-age=300'
+    }
+  }, (err, stream) => {
+    if(err) return
+    stream.end(scriptFile)
+  })
+}
+
 const pushStyles = (response, filePath) => {
   // get the fs here!
   // take in the location of the styles
@@ -39,5 +55,6 @@ const pushStyles = (response, filePath) => {
 
 module.exports = {
     pushFont,
-    pushStyles
+    pushStyles,
+    pushScript
 }
