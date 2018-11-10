@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html class="fonts">
+<!doctype html>
+<html class="fonts" lang="en">
 <head>
-  <title>Critical Foft HTTP/2 Push</title>
-  <meta charset="utf-8" />
-      <!-- Critical styles -->
-      <style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Critical styles -->
+    <style>
         /* source-sans-pro-regular-subset - latin */
         @font-face {
           font-family: 'SourceSansProSubset';
@@ -53,9 +53,11 @@
 
         /* Apply fonts */
             .fonts .main {
-            font-family: sans-serif; /* Fallback font */
+            font-family: sans-serif;
             font-weight: 400;
             font-style: normal;
+            /* If I don't define font-family before js is parsed if will use fallback font first??  */
+            /* font-family: cursive; */
             color:black;
           }
 
@@ -71,56 +73,55 @@
         </style>
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <script>
-      // CSS Font Loading API //
-      (function () {
-        "use strict";
-        if ("fonts" in document) {
-          console.log('fonts are in document')
+  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
 
-          document.fonts.load("1em SourceSansProSubset").then(function () {
-            document.documentElement.className += " subset-loaded";
-            Promise.all([
-              document.fonts.load("400 1em SourceSansPro"),
-              document.fonts.load("700 1em SourceSansPro"),
-              document.fonts.load("italic 1em SourceSansPro"),
-              document.fonts.load("italic 700 1em SourceSansPro")
-            ]).then(function () {
-              document.documentElement.className += " fonts-loaded";
-              // Optimization for Repeat Views
-              //sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
-            });
+	<title>Critical FOFT Preload</title>
+  <script>
+    // CSS Font Loading API //
+    (function () {
+      "use strict";
+      if ("fonts" in document) {
+        console.log('fonts are in document')
+
+        document.fonts.load("1em SourceSansProSubset").then(function () {
+          document.documentElement.className += " subset-loaded";
+          Promise.all([
+            document.fonts.load("400 1em SourceSansPro"),
+            document.fonts.load("700 1em SourceSansPro"),
+            document.fonts.load("italic 1em SourceSansPro"),
+            document.fonts.load("italic 700 1em SourceSansPro")
+          ]).then(function () {
+            document.documentElement.className += " fonts-loaded";
           });
-        }
-      })();
-    </script>
+        });
+      }
+    })();
+  </script>
 </head>
 
 <body>
-  <div class="main">
-  <h1>Critical FOFT with HTTP/2 Push</h1>
-  <p>This is a regular font style with font-weight 400.</p>
-  <p><strong>This is bold 700 text.</strong></p>
-  <p><em>This is emphasized italic</em></p>
-  <p><strong><em>This is heavier and emphasized text.</em></strong></p>
-  <p> Currently, the median loading time for a web page’s primary content to appear on the user’s mobile screen is 5.3
-      seconds [23]. Users expect a site to load within two seconds [24], and as a page load time goes from 1s to 5s, the
-      probability of bounce increases by 90% [2].
-      According to the HTTP Archive, more than 65% of websites are using custom fonts [25][26]. Optimizing the delivery and
-      usage of external fonts can result in a faster render time for a site or web application. Even a small difference in
-      load time, e.g., 100 milliseconds, makes an impact on revenue [3]. Hence, it becomes paramount to find a good
-      strategy for improving the loading of font resources.
-      The wide adoption of the HTTP/2 networking protocol in modern browsers makes Server Push a good candidate as a
-      loading strategy. Gaining knowledge in how Preload compare to HTTP/2 Server Push will be helpful for design-and
-      performance-conscious web developers that want to use web fonts in their projects.
-    </p>
-</div>
-<div class="imgWrapper">
-    <img src="/images/run.jpg" alt="run" />
-    <img src="/images/car.jpg" alt="car" />
-    <img src="/images/cycle.jpg" alt="cycle" />
-</div>
-
-</body>
-</html>
+    <div class="main">
+    <h1>Critical FOFT Preload (Variant 1)</h1>
+    <p>This is a regular font style with font-weight 400.</p>
+    <p><strong>This is bold 700 text.</strong></p>
+    <p><em>This is emphasized italic</em></p>
+    <p><strong><em>This is heavier and emphasized text.</em></strong></p>
+    <p> Currently, the median loading time for a web page’s primary content to appear on the user’s mobile screen is 5.3
+        seconds [23]. Users expect a site to load within two seconds [24], and as a page load time goes from 1s to 5s, the
+        probability of bounce increases by 90% [2].
+        According to the HTTP Archive, more than 65% of websites are using custom fonts [25][26]. Optimizing the delivery and
+        usage of external fonts can result in a faster render time for a site or web application. Even a small difference in
+        load time, e.g., 100 milliseconds, makes an impact on revenue [3]. Hence, it becomes paramount to find a good
+        strategy for improving the loading of font resources.
+        The wide adoption of the HTTP/2 networking protocol in modern browsers makes Server Push a good candidate as a
+        loading strategy. Gaining knowledge in how Preload compare to HTTP/2 Server Push will be helpful for design-and
+        performance-conscious web developers that want to use web fonts in their projects.
+      </p>
+    </div>
+    <div class="imgWrapper">
+        <img src="/images/car.jpg" alt="car" />
+        <img src="/images/cycle.jpg" alt="cycle" />
+      <img src="/images/run.jpg" alt="run" />
+    </div>
+  </body>
+  </html>

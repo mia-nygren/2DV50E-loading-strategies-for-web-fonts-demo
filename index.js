@@ -10,13 +10,12 @@ const PORT = 3000
 // Require the routes
 app.use(require('./app/routes'))
 
-// Routes for Critical FOFT push
+// Routes for Critical FOFT Server Push
 app.use(require('./app/routes/critical-foft-push'))
-app.use(require('./app/routes//critical-foft-push-all'))
+app.use(require('./app/routes/critical-foft-push-and-preload'))
 
-// Routes for Critical FOFT preload
+// Routes for Critical FOFT preload (including variant1, variant2 and variant3)
 app.use(require('./app/routes/critical-foft-preload'))
-app.use(require('./app/routes/critical-foft-preload-all'))
 
 // Route for no strategy
 app.use(require('./app/routes/no-font-loading-strategy'))

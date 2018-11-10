@@ -73,13 +73,11 @@
       </style>
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
-  <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
-  <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2"  type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2"  type="font/woff2" crossorigin>
-  <!-- add subset font files here?? -->
+
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <script>
     // CSS Font Loading API //
@@ -108,23 +106,22 @@
 
 <body>
   <div class="main">
-  <h1>Critical FOFT with HTTP/2 Push</h1>
+  <h1>Critical FOFT with HTTP/2 Push and Preload</h1>
   <p>This is a regular font style with font-weight 400.</p>
   <p><strong>This is bold 700 text.</strong></p>
   <p><em>This is emphasized italic</em></p>
   <p><strong><em>This is heavier and emphasized text.</em></strong></p>
-  <p> just making sure in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat
-    imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc
-    mi ipsum faucibus vitae aliquet nec ullamcorper
-    sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl
-    pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare
-    suspendisse sed
-    nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper
-    dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec
-    massa sapien
-
-    INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
-  </p>
+<p> Currently, the median loading time for a web page’s primary content to appear on the user’s mobile screen is 5.3
+  seconds [23]. Users expect a site to load within two seconds [24], and as a page load time goes from 1s to 5s, the
+  probability of bounce increases by 90% [2].
+  According to the HTTP Archive, more than 65% of websites are using custom fonts [25][26]. Optimizing the delivery and
+  usage of external fonts can result in a faster render time for a site or web application. Even a small difference in
+  load time, e.g., 100 milliseconds, makes an impact on revenue [3]. Hence, it becomes paramount to find a good
+  strategy for improving the loading of font resources.
+  The wide adoption of the HTTP/2 networking protocol in modern browsers makes Server Push a good candidate as a
+  loading strategy. Gaining knowledge in how Preload compare to HTTP/2 Server Push will be helpful for design-and
+  performance-conscious web developers that want to use web fonts in their projects.
+</p>
 </div>
   <div class="imgWrapper">
       <img src="/images/run.jpg" alt="run" />

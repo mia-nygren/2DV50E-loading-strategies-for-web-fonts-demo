@@ -20,10 +20,16 @@
 </head>
 <body>
     <div class="main">
-    <h1>This page demonstrates x different font loading strategies. </h1>
+    <h1>Web Font Optimization for Mobile Internet Users</h1>
+    <h2>A performance study of resource prioritization approaches for optimizing custom fonts on the web.</h2>
     <p> Compare them by testing them locally, with the network throttling profile set to 4G.
         *Details about that here* and reveal the difference in loading speed. </p>
-    <p> The typeface that was used for tesing is called Merriweather.</p>
+    <p> The typeface that was used is called Source Sans Pro.</p>
+    <p> You need a SSL certificat for localhost to be able to test the strategies that are using HTTP/2 Server Push. Certificats are included, but if they have expired please follow this guide.</p>
+    <a href="/critical-foft-preload-variant1" target="_blank">Critical FOFT Preload (variant 1)</a>
+    <p>where only the subsetted web font was preloaded via the HTML <xmp><link></xmp> element</p>
+    <a href="/critical-foft-preload-variant2" target="_blank">Critical FOFT Preload (variant 2)</a>
+    <a href="/critical-foft-preload-variant3" target="_blank">Critical FOFT Preload (variant 3)</a>
     </div>
 </body>
 </html>
