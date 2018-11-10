@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html class="fonts">
 <head>
-  <title>Critical Foft H2 Push</title>
+
+  <title>Critical Foft HTTP/2 Push</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/styles/main.css">
   <link rel="stylesheet" type="text/css" href="/styles/grid.css">
   <link rel="stylesheet" type="text/css" href="/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css">
-  <!-- TODO <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin> -->
-  <!-- add subset font files here?? -->
+  <!-- <link rel="preload" as="font" href="/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2"  type="font/woff2" crossorigin> -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <script>
-    // Log elements
-    let getNumberOfChildNodes = (nodeElement) => {
-      return nodeElement.childNodes.length
-    }
-    let children = document.documentElement.childNodes
-    let arr = Array.from(children)
-      let count = 0
-       arr.forEach(child => {
-        count += getNumberOfChildNodes(child)
-     });
+      // CSS Font Loading API //
+      (function () {
+        "use strict";
+        if ("fonts" in document) {
+          console.log('fonts are in document')
 
-    console.log(`children ${count}`);
-
-    // CSS Font Loading API //
-    (function () {
-      "use strict";
-      if ("fonts" in document) {
-        console.log('fonts are in document')
-
-        document.fonts.load("1em SourceSansProSubset").then(function () {
-          document.documentElement.className += " subset-loaded";
-          Promise.all([
-            document.fonts.load("400 1em SourceSansPro"),
-            document.fonts.load("700 1em SourceSansPro"),
-            document.fonts.load("italic 1em SourceSansPro"),
-            document.fonts.load("italic 700 1em SourceSansPro")
-          ]).then(function () {
-            document.documentElement.className += " fonts-loaded";
-            // Optimization for Repeat Views
-            //sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+          document.fonts.load("1em SourceSansProSubset").then(function () {
+            document.documentElement.className += " subset-loaded";
+            Promise.all([
+              document.fonts.load("400 1em SourceSansPro"),
+              document.fonts.load("700 1em SourceSansPro"),
+              document.fonts.load("italic 1em SourceSansPro"),
+              document.fonts.load("italic 700 1em SourceSansPro")
+            ]).then(function () {
+              document.documentElement.className += " fonts-loaded";
+              // Optimization for Repeat Views
+              //sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+            });
           });
-        });
-      }
-    })();
-  </script>
+        }
+      })();
+    </script>
 </head>
 
 <body>
@@ -66,7 +53,6 @@
 
     INCLUDE GPLYPS THAT ARE NOT IN THE SUBSETTED VERSION TO SEE WHAT HAPPENS...?
   </p>
-
 </div>
 
 </body>
