@@ -7,6 +7,12 @@ html {
   max-width:30em;
   padding: 3em 1em 5em 1em;
 }
+.code {
+  font-size:.7em;
+}
+.main p {
+  text-align: justify;
+}
 
 .imgWrapper img {
   background:#bdbdbd;
