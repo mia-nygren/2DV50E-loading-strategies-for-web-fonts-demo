@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  link(rel='stylesheet' type='text/css' href='/styles/main.css')
+  link(rel='stylesheet' type='text/css' href='/styles/grid.css')
+  link(rel='stylesheet' type='text/css' href='/styles/source-sans-pro-latin/fonts-4-styles-and-subset.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Resource prioritization approaches for custom fonts
+  style.
+    .fonts .main {
+    font-family: SourceSans, serif;
+    /* If I don't define font-family before js is parsed if will use fallback font first??  */
+    /* font-family: cursive; */
+    color:black;
+    /* font-size:5em; */
+    }
+.main
+  h1 Web Font Optimization for Mobile Internet Users
+  h2
+    | A performance study of resource prioritization approaches for optimizing custom fonts on the web.
+  p
+    | Compare them by testing them locally, with the network throttling profile set to 4G.
+    | *Details about that here* and reveal the difference in loading speed.
+  p  The typeface that was used is called Source Sans Pro.
+  p
+    | You need a SSL certificat for localhost to be able to test the strategies that are using HTTP/2 Server Push. Certificats are included, but if they have expired please follow this guide.
+  a(href='/critical-foft-preload-variant1' target='_blank') Critical FOFT Preload (variant 1)
+  p
+    | where only the subsetted web font was preloaded via the HTML
+    xmp
+      link
+    |  element
+  a(href='/critical-foft-preload-variant2' target='_blank') Critical FOFT Preload (variant 2)
+  a(href='/critical-foft-preload-variant3' target='_blank') Critical FOFT Preload (variant 3)
