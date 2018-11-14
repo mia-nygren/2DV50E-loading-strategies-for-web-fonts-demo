@@ -1,0 +1,14 @@
+doctype html
+html(class='fonts' lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    block pageTitle
+    include includes/critical-styles
+    link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+    include layout/includes/stylesheets
+    include includes/css-font-loading-api-script
+  body
+    block main
+    script(src='./js/vendor/prism/prism.js')

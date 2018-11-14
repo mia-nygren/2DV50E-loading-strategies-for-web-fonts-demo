@@ -1,0 +1,9 @@
+extends layout/index
+block pageTitle
+  title Resource prioritization approaches for custom fonts
+block main
+  .main
+    h1=status
+    h2=message
+    if(error)
+      pre=error.stack
