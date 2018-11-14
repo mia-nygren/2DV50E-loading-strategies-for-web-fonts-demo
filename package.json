@@ -4,8 +4,8 @@
     "description": "Font loading strategies ",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js",
-        "dev": "nodemon index.js",
+        "start": "node",
+        "dev": "set NODE_ENV=development&&nodemon server",
         "eslint": "eslint"
     },
     "repository": {
@@ -15,6 +15,7 @@
     "license": "MIT",
     "dependencies": {
         "express": "^4.14.1",
+        "http-errors": "^1.7.1",
         "https": "^1.0.0",
         "pug": "^2.0.3",
         "spdy": "^3.4.7"

@@ -8,7 +8,8 @@ router.get('/critical-foft-push-and-preload', function(req, res) {
 
   pushStyles(res, 'styles/main.css')
   pushStyles(res, 'styles/grid.css')
-    // Push Source Sans Pro Regular subset
+  pushStyles(res, 'styles/vendor/prism/prism.css')
+  // Push Source Sans Pro Regular subset
   pushFont(res, 'fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2')
 
 
