@@ -34,7 +34,6 @@ const pushScript = (response, filePath) => {
 }
 
 const pushStyles = (response, filePath) => {
-  // get the fs here!
   // take in the location of the styles
   const styleFilePath = path.join(__dirname, '../../app/assets/' + filePath);
   // console.log(`styleFilePath ${styleFilePath}`);
