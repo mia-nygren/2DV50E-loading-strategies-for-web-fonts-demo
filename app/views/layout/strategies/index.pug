@@ -4,13 +4,13 @@ html(class='fonts' lang='en')
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    block pageTitle
+    title=page
     include ../includes/critical-styles
     link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
     block links
     include ../includes/css-font-loading-api-script
     .main
-      h1 Critical FOFT with HTTP/2 Push
+      h1 #{page}
       p This is a regular font style with font-weight 400.
       p
         strong This is bold 700 text.
