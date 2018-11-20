@@ -2,10 +2,13 @@ html {
   background:#EDEDED;
   font-size: 1.3em;
 }
+body {
+  margin:0;
+}
 
 .main {
   max-width:30em;
-  padding: 3em 1em 5em 1em;
+  padding: 1em 1em 5em 1em;
 }
 .code {
   font-size:.7em;
@@ -16,4 +19,10 @@ html {
 
 .imgWrapper img {
   background:#bdbdbd;
+}
+
+@media(min-width:22.6em) {
+  .main {
+    padding-top:3em;
+  }
 }

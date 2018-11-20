@@ -9,7 +9,7 @@ body {
   grid-column: 3;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(50px, auto);
   max-width:50em;
   justify-items: center; /* horizontal alignment */
   align-items:center; /* vertical alignment */
@@ -21,20 +21,34 @@ body {
 }
 
 .main {
-  grid-column-start: 3;
-  grid-row:1;
-  margin:0 auto;
+  grid-column: 1/5;
+  max-width:300px; /* For some reason em does not work with puppeteer screenshots properly */
 }
 
 .code {
-  grid-column:3;
+  grid-column: 1/-1;
   grid-row:2;
-  min-width:30em;
   justify-items: center;
+}
+
+@media(min-width:22.6em) {
+  .main {
+    min-width:30em;
+    max-width:30em;
+  }
+  .code {
+    min-width:30em;
+    grid-column:3;
+  }
 }
 
 @media(min-width:40em) {
   .imgWrapper {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .main {
+    grid-column: 3;
+    grid-row:1;
+    margin:0 auto;
   }
 }
