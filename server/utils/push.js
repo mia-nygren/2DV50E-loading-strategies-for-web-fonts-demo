@@ -20,7 +20,6 @@ const pushFont = (response, fontSrc) => {
 const pushScript = (response, filePath) => {
   const scriptFilePath = path.join(__dirname, '../../app/assets/' + filePath)
   const scriptFile = fs.readFileSync(scriptFilePath)
-  console.log(`should push script`);
 
   response.push('/' + filePath, {
     response: {
@@ -36,7 +35,6 @@ const pushScript = (response, filePath) => {
 const pushStyles = (response, filePath) => {
   // take in the location of the styles
   const styleFilePath = path.join(__dirname, '../../app/assets/' + filePath);
-  // console.log(`styleFilePath ${styleFilePath}`);
   const cssFile = fs.readFileSync(styleFilePath)
 
   response.push('/' + filePath, {    // response.push('/styles/merriweather/fonts.css'
