@@ -1,13 +1,11 @@
 extends layout/strategies/index
-block pageTitle
-  title Critical FOFT Preload (Variant 3)
 block links
   link(rel='preload' href='/styles/main.css' as='style' type='text/css')
   link(rel='preload' href='/styles/grid.css' as='style' type='text/css')
   linl(rel='preload' href='/styles/vendor/prism/prism.css' as='style' type='text/css')
   // Preloading subset web font
-  link(rel='preload' as='font' href='/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2' type='font/woff2' crossorigin='')
-  // The stylesheets has to be link normally too so that the browser knows that they will be used directly, see example --> https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
+  link(rel='preload' as='font' href=sourceSansPro.subset type='font/woff2' crossorigin='')
+  // The stylesheets has to be link normally too so that the browser knows that they will be used directly see exampl: https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
   include layout/includes/stylesheets
 
 

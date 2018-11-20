@@ -1,7 +1,5 @@
 extends layout/strategies/index
-block pageTitle
-  title Critical FOFT Preload (Variant1)
 block links
   include layout/includes/stylesheets
   // Preloading subset web font
-  link(rel='preload' as='font' href='/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2' type='font/woff2' crossorigin='')
+  link(rel='preload' as='font' href=sourceSansPro.subset type='font/woff2' crossorigin='')

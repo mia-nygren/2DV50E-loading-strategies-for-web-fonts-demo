@@ -3,10 +3,12 @@ const spdy = require('spdy'),
     fs = require('fs'),
     express = require('express'),
     path = require('path'),
+    configs = require('./config'),
     createError = require('http-errors')
 
  // Create Express Application
 const app = express()
+const config = configs[app.get('env')]
 const PORT = 3000
 
 // Set the template engine to Pug
@@ -17,6 +19,17 @@ app.set('views', path.join(__dirname, '../app/views'))
 app.use(express.static('app/vendor'))
 app.use(express.static('app'))
 app.use(express.static('app/assets'))
+
+if(app.get('env') === 'development')
+  app.locals.pretty = true
+
+app.locals.sourceSansPro = {
+  subset : '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2',
+  regular400: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2',
+  italic400: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2',
+  bold700: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2',
+  boldItalic700: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2'
+}
 
 // Require the routes
 app.use(require('./routes')) // Route for index page
