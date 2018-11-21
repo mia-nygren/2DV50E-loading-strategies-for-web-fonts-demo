@@ -5,6 +5,7 @@ const spdy = require('spdy'),
     path = require('path'),
     configs = require('./config'),
     createError = require('http-errors')
+const {setLocals} = require('./utils/locals')
 
  // Create Express Application
 const app = express()
@@ -20,16 +21,8 @@ app.use(express.static('app/vendor'))
 app.use(express.static('app'))
 app.use(express.static('app/assets'))
 
-if(app.get('env') === 'development')
-  app.locals.pretty = true
 
-app.locals.sourceSansPro = {
-  subset : '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2',
-  regular400: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2',
-  italic400: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2',
-  bold700: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2',
-  boldItalic700: '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2'
-}
+setLocals(app)
 
 // Require the routes
 app.use(require('./routes')) // Route for index page
