@@ -1,0 +1,90 @@
+.main
+  h1 #{page}
+  p This is a regular font style with font-weight 400.
+  p
+    strong This is bold 700 text.
+  p
+    em This is emphasized italic.
+  p
+    strong
+      em This is heavier and emphasized text.
+  p
+    | Currently, the median loading time for a web page&rsquo;s primary content to appear on the user&rsquo;s mobile screen is 5.3
+    | seconds [23]. Users expect a site to load within two seconds [24], and as a page load time goes from 1s to 5s, the
+    | probability of bounce increases by 90% [2].
+    | According to the HTTP Archive, more than 65% of websites are using custom fonts [25][26]. Optimizing the delivery and
+    | usage of external fonts can result in a faster render time for a site or web application. Even a small difference in
+    | load time, e.g., 100 milliseconds, makes an impact on revenue [3]. Hence, it becomes paramount to find a good
+    | strategy for improving the loading of font resources.
+    | The wide adoption of the HTTP/2 networking protocol in modern browsers makes Server Push a good candidate as a
+    | loading strategy. Gaining knowledge in how Preload compare to HTTP/2 Server Push will be helpful for design-and
+    | performance-conscious web developers that want to use web fonts in their projects.
+  h3 Font Loading Stages
+  p
+    | For demonstration purposes, the loading stages in this demo have different font colors applied to them:
+  ul
+    li
+      .fallbackColorBox
+      span Orange = Fallback color
+    li
+      .subsetColorBox
+      span Green = Subset font color
+    li
+      .loadedColorBox
+      span Black = When all web font stylses are loaded
+
+  h3  @font-face declaration used for Source Sans Pro
+  p
+    | Below is an example of the @font-face CSS rules that was used for this demo application.
+  p
+    | Only .woff2 files were used for testing the resource prioritization approaches in this degree project.
+    | In production it is recommended to include at least the .woff format (for browsers that do not support .woff2).
+.code
+  pre
+    code.language-css
+      | /* source-sans-pro-regular-subset - latin */
+      | @font-face {
+      | font-family: &apos;SourceSansProSubset&apos;;
+      | font-style: normal;
+      | font-weight: 400;
+      | src: url(&apos;/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2&apos;) format(&apos;woff2&apos;);
+      | font-display: swap;
+      | }
+      | /* source-sans-pro-regular - latin */
+      | @font-face {
+      | font-family: &apos;SourceSansPro&apos;;
+      | font-style: normal;
+      | font-weight: 400;
+      | src: url(&apos;/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2&apos;) format(&apos;woff2&apos;);
+      | font-display: swap;
+      | }
+      | /* source-sans-pro-italic - latin */
+      | @font-face {
+      | font-family: &apos;SourceSansPro&apos;;
+      | font-style: italic;
+      | font-weight: 400;
+      | src: url(&apos;/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2&apos;) format(&apos;woff2&apos;);
+      | font-display: swap;
+      | }
+      | /* source-sans-pro-700 - latin */
+      | @font-face {
+      | font-family: &apos;SourceSansPro&apos;;
+      | font-style: normal;
+      | font-weight: 700;
+      | src: url(&apos;/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2&apos;) format(&apos;woff2&apos;);
+      | font-display: swap;
+      | }
+      | /* source-sans-pro-700italic - latin */
+      | @font-face {
+      | font-family: &apos;SourceSansPro&apos;;
+      | font-style: italic;
+      | font-weight: 700;
+      | src: url(&apos;/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2&apos;) format(&apos;woff2&apos;);
+      | font-display: swap;
+      | }
+
+.imgWrapper
+  img(src='./images/run.jpg' alt='run')
+  img(src='./images/car.jpg' alt='car')
+  img(src='./images/cycle.jpg' alt='cycle')
+script(src='./js/vendor/prism/prism.js')
