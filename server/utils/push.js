@@ -2,10 +2,10 @@ const fs = require('fs'),
     path = require('path')
 
 const pushFont = (response, fontSrc) => {
-    const fontFilePath = path.join(__dirname, '../../app/assets/' + fontSrc);
-    const fontFile = fs.readFileSync(fontFilePath)   //('./app/fonts/merriweather-v19-latin-regular-subset.woff2');
+    const fontFilePath = path.join(__dirname, '../../app/assets' + fontSrc);
+    const fontFile = fs.readFileSync(fontFilePath)
     // push woff2
-    response.push('/' + fontSrc, {
+    response.push(fontSrc, {
         response: {
             'Content-Type': 'font/woff2',
             'Cache-Control': 'max-age=300' // 'no-cache' --> must revalidate before using a cached copy, but we need push cache?
@@ -17,27 +17,12 @@ const pushFont = (response, fontSrc) => {
 
 }
 
-const pushScript = (response, filePath) => {
-  const scriptFilePath = path.join(__dirname, '../../app/assets/' + filePath)
-  const scriptFile = fs.readFileSync(scriptFilePath)
-
-  response.push('/' + filePath, {
-    response: {
-      'Content-Type': 'application/javascript',
-      'Cache-Control': 'max-age=300'
-    }
-  }, (err, stream) => {
-    if(err) return
-    stream.end(scriptFile)
-  })
-}
-
-const pushStyles = (response, filePath) => {
-  // take in the location of the styles
-  const styleFilePath = path.join(__dirname, '../../app/assets/' + filePath);
+const pushStyles = (response, staticPath) => {
+  // locate the stylesheet
+  const styleFilePath = path.join(__dirname, `../../app/assets${staticPath}`);
   const cssFile = fs.readFileSync(styleFilePath)
 
-  response.push('/' + filePath, {    // response.push('/styles/merriweather/fonts.css'
+  response.push(staticPath, {    // usage: response.push('/styles/main.css')
       response: {
           'Content-Type': 'text/css',
           'Cache-Control': 'max-age=300'
@@ -49,6 +34,44 @@ const pushStyles = (response, filePath) => {
       stream.end(cssFile);
   });
 }
+
+
+// const pushStyles = (response, staticPath) => {
+//   // locate the gziped stylesheet
+//   const styleFilePath = path.join(__dirname, `../../static${staticPath}.gz`); // Gziped file
+//   const cssFile = fs.readFileSync(styleFilePath)
+
+//   response.push(staticPath, {    // usage: response.push('/styles/main.css')
+//       response: {
+//           'Content-Type': 'text/css',
+//           'Cache-Control': 'max-age=300',
+//           'content-encoding' : 'gzip',
+//       }
+//   }, function(err, stream) {
+//       if (err) {
+//           return;
+//       }
+//       stream.end(cssFile);
+//   });
+// }
+
+const pushScript = (response, filePath) => {
+  // locate the gziped js file
+  const scriptFilePath = path.join(__dirname, `../../app/assets/${filePath}.gz`) // Gziped file
+  const scriptFile = fs.readFileSync(scriptFilePath)
+
+  response.push('/' + filePath, {
+    response: {
+      'Content-Type': 'application/javascript',
+      'Cache-Control': 'max-age=300',
+      'content-encoding' : 'gzip',
+    }
+  }, (err, stream) => {
+    if(err) return
+    stream.end(scriptFile)
+  })
+}
+
 
 module.exports = {
     pushFont,
