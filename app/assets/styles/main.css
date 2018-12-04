@@ -9,7 +9,7 @@ body {
   margin:0 auto;
 }
 
-.main {
+.main, .references {
   width:100%;
   margin:0 auto;
   /* max-width:300px; For some reason em does not work with puppeteer screenshots properly */
@@ -52,7 +52,7 @@ body {
   background: #2d2d2d;
 }
 
-ul li {
+.colors li  {
   height:2em;
   list-style-type: none;
   margin-left:-1.5em;
@@ -76,16 +76,13 @@ ul li {
 }
 
 @media(min-width:18.75em) {
-  .main {
+  .main, .references {
     width:100%;
-  }
-  .code {
-
   }
 }
 
 @media(min-width:1.625em) {
-  .main p {
+  .main p, .references p {
     text-align: justify;
   }
 }

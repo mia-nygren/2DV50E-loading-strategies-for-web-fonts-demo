@@ -10,11 +10,11 @@
       em This is heavier and emphasized text.
   p
     | Currently, the median loading time for a web page&rsquo;s primary content to appear on the user&rsquo;s mobile screen is 5.3
-    | seconds [23]. Users expect a site to load within two seconds [24], and as a page load time goes from 1s to 5s, the
-    | probability of bounce increases by 90% [2].
-    | According to the HTTP Archive, more than 65% of websites are using custom fonts [25][26]. Optimizing the delivery and
+    | seconds [1]. Users expect a site to load within two seconds [2], and as a page load time goes from 1s to 5s, the
+    | probability of bounce increases by 90% [3].
+    | According to the HTTP Archive, more than 65% of websites are using custom fonts [4][5]. Optimizing the delivery and
     | usage of external fonts can result in a faster render time for a site or web application. Even a small difference in
-    | load time, e.g., 100 milliseconds, makes an impact on revenue [3]. Hence, it becomes paramount to find a good
+    | load time, e.g., 100 milliseconds, makes an impact on revenue [6]. Hence, it becomes paramount to find a good
     | strategy for improving the loading of font resources.
     | The wide adoption of the HTTP/2 networking protocol in modern browsers makes Server Push a good candidate as a
     | loading strategy. Gaining knowledge in how Preload compare to HTTP/2 Server Push will be helpful for design-and
@@ -22,7 +22,7 @@
   h3 Font Loading Stages
   p
     | For demonstration purposes, the loading stages in this demo have different font colors applied to them:
-  ul
+  ul.colors
     li
       .fallbackColorBox
       span Orange = Fallback color
@@ -87,4 +87,14 @@
   img(src='./images/run.jpg' alt='run')
   img(src='./images/car.jpg' alt='car')
   img(src='./images/cycle.jpg' alt='cycle')
+.references
+  h3 References
+  ol
+    li "Loading Speed", Httparchive.org, 2018. [Online]. Available: http://httparchive.org/reports/loading-speed?start=2018_07_01&end=latest&view=list. [Accessed: 01- Oct- 2018].
+    li E. Fullerton, Performance Matters: 9 Key Consumer Insights. Akamai Technologies, 2014, p. 8.
+    li "The need for mobile speed", 2016. [Online]. Available: https://storage.googleapis.com/doubleclick-prod/documents/The_Need_for_Mobile_Speed_-_FINAL.pdf. [Accessed: 28- Sep-2018].
+    li "HTTP Archive Mobile - Interesting Stats", Mobile.httparchive.org, 2018. [Online]. Available: https://mobile.httparchive.org/interesting.php#fonts. [Accessed: 01- Oct- 2018].
+    li "HTTP Archive - Interesting Stats", Legacy.httparchive.org, 2018. [Online]. Available: https://legacy.httparchive.org/interesting.php#fonts. [Accessed: 01- Oct- 2018].
+    li "Amazon sees a 1% decrease in revenue for every 100ms increase in load time.", Wpostats.com, 2018. [Online]. Available: https://wpostats.com/2015/10/29/amazon-1-percent.html. [Accessed: 01- 01- Oct- 2018].
+
 script(src='./js/vendor/prism/prism.js')
