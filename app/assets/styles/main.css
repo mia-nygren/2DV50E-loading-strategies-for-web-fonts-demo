@@ -21,9 +21,6 @@ body {
   width:100%;
   max-width:50em;
   margin:0 auto;
-}
-
-.code span {
   font-size:.7em;
 }
 .main p {
