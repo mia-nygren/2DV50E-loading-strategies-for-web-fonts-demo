@@ -4,7 +4,8 @@ const spdy = require('spdy'),
     express = require('express'),
     path = require('path'),
     configs = require('./config'),
-    createError = require('http-errors')
+    createError = require('http-errors'),
+    compression = require('compression')
 const {setLocals} = require('./utils/locals')
 
  // Create Express Application
@@ -16,6 +17,8 @@ const PORT = 3000
 app.set('view engine','pug' )
 app.set('views', path.join(__dirname, '../app/views'))
 
+// Compress all responses
+app.use(compression())
 // Assets and public folder - TODO describe static
 app.use(express.static('app/vendor'))
 app.use(express.static('app'))
