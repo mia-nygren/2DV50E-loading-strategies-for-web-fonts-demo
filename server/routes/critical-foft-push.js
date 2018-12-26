@@ -8,13 +8,12 @@ const {pushStyles, pushFont, pushScript} = require('../utils/push')
 router.get('/critical-foft-push', function(req, res) {
 
   // Push Source Sans Pro Regular subset
-  pushFont(res, '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2')
+  pushFont(res, res.app.locals.sourceSansPro.subset) // XKB
+  // Push CSS
+  pushStyles(res, '/styles/main.css') // XKB
+  pushStyles(res, '/styles/vendor/prism/prism.css')  // XKB
 
-  // pushScript(res, 'js/font-loading.js')
-  pushStyles(res, '/styles/main.css')
-  pushStyles(res, '/styles/vendor/prism/prism.css') // TODO Gzip
-
-  return res.render('critical-foft-push', {
+  res.render('critical-foft-push', {
   page: 'Critical Foft with HTTP/2 Push'
   });
 });

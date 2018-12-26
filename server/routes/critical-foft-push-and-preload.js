@@ -5,11 +5,11 @@ const express = require('express'),
 const {pushStyles, pushFont} = require('../utils/push')
 
 router.get('/critical-foft-push-and-preload', function(req, res) {
-
-  pushStyles(res, '/styles/main.css')
-  pushStyles(res, '/styles/vendor/prism/prism.css')
   // Push Source Sans Pro Regular subset
-  pushFont(res, '/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular-subset.woff2')
+  pushFont(res, res.app.locals.sourceSansPro.subset) // XKB
+  // Push CSS
+  pushStyles(res, '/styles/main.css') // XKB
+  pushStyles(res, '/styles/vendor/prism/prism.css')  // XKB
 
    res.render('critical-foft-push-and-preload', {
      page: 'Critical FOFT HTTP/2 Push and Preload'
