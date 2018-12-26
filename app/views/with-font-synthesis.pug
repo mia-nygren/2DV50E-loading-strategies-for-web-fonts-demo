@@ -1,0 +1,93 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    block pageTitle
+    // Only regular font family is defined
+    style.
+      @font-face {
+      font-family: 'SourceSansProSynthesis';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      font-display: swap;
+      }
+      /* source-sans-pro-regular - latin */
+      @font-face {
+      font-family: 'SourceSansPro';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      font-display: swap;
+      }
+      /* source-sans-pro-italic - latin */
+      @font-face {
+      font-family: 'SourceSansPro';
+      font-style: italic;
+      font-weight: 400;
+      src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      font-display: swap;
+      }
+      /* source-sans-pro-700 - latin */
+      @font-face {
+      font-family: 'SourceSansPro';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      font-display: swap;
+      }
+      /* source-sans-pro-700italic - latin */
+      @font-face {
+      font-family: 'SourceSansPro';
+      font-style: italic;
+      font-weight: 700;
+      src: url('fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/source-sans-pro-latin/source-sans-pro-v11-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      font-display: swap;
+      }
+      }
+      .light200 {
+        font-weight:200;
+      }
+      .light {
+        font-weight:300;
+      }
+      .main h1 {
+        padding-bottom:1em;
+      }
+      body {
+        font-size: 2em;
+        background:#FFF;
+        box-sizing:border-box;
+        padding:2em;
+        margin:0 auto;
+        width:20em;
+      }
+      body .synthesis {
+        font-family:'SourceSansProSynthesis', Arial, serif;
+      }
+      body .noSynthesis {
+        font-family:'SourceSansPro', Arial, serif;
+      }
+    link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+  body
+    .main
+      h1.noSynthesis Font-Synthesis
+      p.synthesis
+        | Example with faux
+        strong  bold
+        |  and
+        em  italics
+      p.noSynthesis
+        | Example with real
+        strong  bold
+        |  and
+        em  italics
+
+

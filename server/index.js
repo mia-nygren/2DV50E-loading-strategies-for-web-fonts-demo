@@ -28,7 +28,7 @@ app.use(express.static('app/assets'))
 setLocals(app)
 
 // Require the routes
-app.use(require('./routes')) // Route for index page
+app.use(require('./routes')) // Route for index page and font-syntesis example
 app.use(require('./routes/no-font-loading-strategy')) // Route for no strategy
 app.use(require('./routes/critical-foft-push')) // Route for Critical FOFT Server Push
 app.use(require('./routes/critical-foft-push-and-preload')) // Route for Critical FOFT Server Push and Preload
