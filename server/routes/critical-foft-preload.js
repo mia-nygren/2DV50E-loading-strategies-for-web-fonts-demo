@@ -15,10 +15,5 @@ router.get('/critical-foft-preload-variant2', function(req, res) {
   })
 });
 
-router.get('/critical-foft-preload-variant3', function(req, res) {
-  res.render('critical-foft-preload-variant3', {
-    page: 'Critical FOFT Preload (Variant 3)'
-  })
-})
 
 module.exports = router
