@@ -1,6 +1,6 @@
 extends layout/strategies/index
-block links
+block preload
+  include layout/includes/preload/subset-fonts
+  include layout/includes/preload/all-fonts
+block styleSheets
   include layout/includes/css/stylesheets
-  // Preloading all web fonts
-  link(rel='preload' as='font' href=sourceSansPro.subset type='font/woff2' crossorigin='')
-  include layout/includes/fonts/preloaded-fonts
