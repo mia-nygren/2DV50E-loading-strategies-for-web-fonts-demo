@@ -1,0 +1,65 @@
+.fontStages {
+  padding: 20px 0;
+  h3 {
+    margin-block-end: .4em !important;
+  }
+  p {
+    font-weight: 400;
+  }
+
+  .colorWrapper {
+    padding-left:20px;
+    p {
+      padding-left:20px;
+    }
+    > div {
+      margin:20px 0;
+    }
+  }
+  .colors  {
+    width:3em;
+    float:left;
+
+  }
+  .description {
+    p {
+      padding-left:20px;
+      line-height:2em;
+      }
+  }
+  ul {
+    list-style-type: none;
+    margin-top:0 !important;
+
+    li {
+      margin:0 !important;
+      list-style-position: inside;
+      padding-left:20px;
+    }
+  }
+  // .fallback::before,
+  // .subset::before,
+  // .loaded::before {
+  //   content: "\25A0";
+  //   font-weight: bold;
+  //   display: inline-block;
+  //   width: 2em;
+  //   font-size:2em;
+  //   margin-left: -1em;
+  // }
+  .fallback{
+    border-left: 5px solid #f08d49;
+    color: #f08d49;
+  }
+  .subset {
+    color: #7ec699;
+    border-left: 5px solid #7ec699;
+    p {
+      margin-block-end: 0;
+    }
+  }
+  .loaded {
+    color: #2d2d2d;
+    border-left: 5px solid #2d2d2d;
+  }
+}

@@ -1,0 +1,54 @@
+/** MEDIA ***/
+
+@media(min-width:1.625em) {
+  .main p, .references p {
+    text-align: justify;
+  }
+}
+
+@media(min-width:18.75em) {
+  .main {
+    width:100%;
+  }
+}
+
+@media(min-width:22.6em) {
+  .main {
+    padding: 2em;
+    padding-top:3em;
+  }
+}
+@media(min-width:30em) {
+  .main {
+
+    max-width:30em;
+  }
+  .example {
+    font-size:1.1em;
+  }
+}
+
+@media(min-width:40em) {
+  .main {
+    max-width:40em;
+    padding: 3em 6em;
+  }
+  .imgWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media(min-width:60em) {
+  .example {
+    font-size:1.3em;
+  }
+  .main {
+    padding: 3em 10em;
+    max-width:60em;
+  }
+}
+@media(min-width:70em) {
+  .main {
+    padding: 3em 15em;
+    max-width:70em;
+  }
+}

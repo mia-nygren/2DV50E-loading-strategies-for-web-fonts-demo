@@ -1,0 +1,30 @@
+.statistics {
+  padding-top:120px;
+  height:600px;
+}
+.pieChart {
+  padding:50px 0;
+  margin-left:40px;
+  width:60%;
+  float:left;
+}
+.requestsMobile {
+  position: relative;
+  margin-left:-100px;
+  width:40%;
+  float:left;
+}
+
+.fontReq {
+  width:65%;
+  position: absolute;
+  top:-35px;
+  // left:20px;
+  z-index:999;
+}
+.mobileIcon {
+  width:100%;
+  position: relative;
+  padding-left:50%;
+}
+

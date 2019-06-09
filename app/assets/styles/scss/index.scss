@@ -1,0 +1,71 @@
+/** Index ( start page) **/
+
+.strategies {
+  padding:20px 0;
+  h2 {
+    margin-block-end:.5em !important;
+  }
+
+  .goto {
+    font-size:1em;
+    font-style: italic;
+  }
+  .description {
+    font-size:.95em;
+    padding-top:10px;
+    margin-left: 20px;
+    border-left:1px solid grey;
+    padding-left: 10px;
+  }
+}
+
+.about {
+  padding-top: 20px;
+}
+
+.how {
+  padding-bottom:30px;
+  ol {
+    // list-style-type: disc;
+    li {
+      margin-block-start: 1em;
+      line-height:45x;
+      margin-left:20px;
+
+      font-weight: 700;
+
+      ul {
+        list-style-type: square;
+          li {
+          margin-block-start: .3em;
+          font-weight:400;
+          line-height:1.8;
+        }
+      }
+    }
+  }
+}
+
+.tls {
+  padding-top:20px;
+}
+
+
+.fonts body .index{
+  color: #2d2d2d;
+}
+.fonts body h1 {
+  font-size: 2em;
+}
+.fonts body p {
+  font-size: 1.1em;
+  line-height:1.825;
+}
+.subset-loaded body p {
+  font-size:1.2em;
+  line-height:1.6;
+}
+
+.subset-loaded body .index {
+  color: #2d2d2d;
+}

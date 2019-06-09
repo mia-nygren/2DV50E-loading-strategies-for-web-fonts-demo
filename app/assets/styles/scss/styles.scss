@@ -1,0 +1,46 @@
+/* --- Reset---*/
+@import 'helpers';
+@import 'reset';
+@import 'header';
+@import 'main';
+@import 'font-stages';
+
+html {
+  /* background-color: #565f6e; */
+  background-color: #FFF;
+}
+div {
+  box-sizing: border-box;
+}
+body {
+  width:100%;
+}
+
+
+/** headlines and font styles **/
+h1, h3 {
+  font-weight:700;
+}
+
+h3 {
+  font-size:1.2em;
+}
+.bold {
+   font-weight: 700;
+ }
+.italic {
+   font-style: italic;
+}
+
+/** Navigation **/
+
+@import 'navigation';
+
+
+//- Index start page
+@import 'index';
+
+@import 'limitations';
+
+
+@import 'media-queries'
