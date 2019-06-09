@@ -4,15 +4,46 @@ const express = require('express'),
 // get the helper methods for pushing Styles and Fonts
 const {pushStyles, pushFont} = require('../utils/push')
 
-router.get('/critical-foft-push-and-preload', function(req, res) {
-  // Push Source Sans Pro Regular subset
-  pushFont(res, res.app.locals.sourceSansPro.subset) // XKB
-  // Push CSS
-  pushStyles(res, '/styles/main.css') // XKB
-  pushStyles(res, '/styles/vendor/prism/prism.css')  // XKB
+const pushResources = (res) => {
+   // Push Source Sans Pro Regular subset
+   pushFont(res, res.app.locals.sourceSansPro.subset) // XKB
 
-   res.render('critical-foft-push-and-preload', {
-     page: 'Critical FOFT HTTP/2 Push and Preload'
+   // Push CSS
+   pushStyles(res, '/vendor/bulma/bulma.css')  // 10KB  -- GZipped
+   pushStyles(res, '/styles/main.css') //  GZipped!
+}
+
+/**
+ *   Route for strategy #3 (Push only)
+ */
+
+router.get('/critical-foft-push', function(req, res) {
+
+  pushResources(res)
+  res.render('critical-foft-push', {
+    page: 'Critical Foft with HTTP/2 Push',
+    path: req.path
+  });
+});
+
+/**
+ *    Routes for strategy #4 and #5 (Push & Preload)
+ */
+
+router.get('/critical-foft-push-and-preload-variant1', function(req, res) {
+  pushResources(res)
+
+   res.render('critical-foft-push-and-preload-variant1', {
+     page: 'Critical FOFT HTTP/2 Push and Preload (Variant 1)',
+     path: req.path
+   })
+});
+router.get('/critical-foft-push-and-preload-variant2', function(req, res) {
+  pushResources(res)
+
+   res.render('critical-foft-push-and-preload-variant2', {
+     page: 'Critical FOFT HTTP/2 Push and Preload (Variant 2)',
+     path: req.path
    })
 });
 
