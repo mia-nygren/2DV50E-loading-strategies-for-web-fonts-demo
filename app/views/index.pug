@@ -2,21 +2,87 @@ extends layout/index
 block pageTitle
   title Resource prioritization approaches for custom fonts
 block main
-  .main
-    h1 Web Font Optimization for Mobile Internet Users
-    h2
-      | A performance study of resource prioritization approaches for optimizing custom fonts on the web.
-    p
-      | Compare them by testing them locally, with the network throttling profile set to 4G.
-      | *Details about that here* and reveal the difference in loading speed.
-    p  The typeface that was used is called Source Sans Pro.
-    p
-      | You need a SSL certificat for localhost to be able to test the strategies that are using HTTP/2 Server Push. Certificats are included, but if they have expired please follow this guide.
-    a(href='/critical-foft-preload-variant1' target='_blank') Critical FOFT Preload (variant 1)
-    p
-      | where only the subsetted web font was preloaded via the HTML
-      xmp
-        link
-      |  element
-    a(href='/critical-foft-preload-variant2' target='_blank') Critical FOFT Preload (variant 2)
-    a(href='/critical-foft-preload-variant3' target='_blank') Critical FOFT Preload (variant 3)
+  .index
+    .main
+      h1.title.is-2 Loading Strategies for Web Fonts
+
+      #about.about
+        h2.subtitle.is-2 About
+        .content
+          p
+            | This demo is a supplement to my degree project in Computer Science. It's primary purpose is to demonstrate how resource prioritization approaches
+            | like HTTP/2 Preload and HTTP/2 Push can be used to optimize the delivery of web fonts for first-time visitors.
+            | The selected strategies builds upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article [A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES]
+          p  The typeface that was used in this demo is called Source Sans Pro.
+
+      include layout/includes/components/font-stages
+
+      hr
+
+      #how.how
+        h2.subtitle.is-2 How to
+
+        ol
+          li Open this demo in Google Chrome Web browser
+            ul
+              li If you haven't already - Fait le!
+          li Go to a strategy of your choice
+            ul
+              li See #[a(href='/#strategies') Strategies]
+          li Open Chrome DevTools
+            ul
+              li Right click on the page and choose 'Inspect'
+          li Go to the Networks tab
+            ul
+              li Set the network throttling profile to Fast 3G.
+              li Make sure capture screenshots is activated.
+          li Make a Hard Reload of the page
+            ul
+              li ctrl + shift + R (Windows) or cmd + shift + R (Mac)
+          li See how the font resources are loading
+            ul
+              li In the networks tab you can see details about how the resources loaded
+                ul
+                  li The initiator column is useful for seeing what initiated the request.
+                  li If a resource was pushed the initiator will say Push.
+              li Doubleclick on a screenshot to get a larger preview
+                ul
+                  li If text is orange: This is when the text is displayed in a Fallback font.
+                  li If text is green: This is when the subset web font is rendered to the user
+                  li If text is black: This is when all the web fonts are rendered to the user.
+          li If you totally new to DevTools check out these two exellent tutorials
+            ul
+              li #[a(href="https://developers.google.com/web/tools/chrome-devtools/network/") Inspect Network Activity In Chrome DevTools]
+              li #[a(href="https://developers.google.com/web/tools/chrome-devtools/") Chrome DevTools]
+
+      hr
+
+      #strategies.strategies.content
+        h2.subtitle.is-3 Strategies
+        p.goto Click on a strategy to go to the specific route for that strategy.
+        a(href='critical-foft-preload-variant1')
+                | #1 - Critical FOFT with HTTP/2 Preload (V1)
+        p.description
+          | Only the subsetted web font is preloaded via the HTML &lt;link&gt; element
+        hr.navbar-divider
+        a(href='critical-foft-preload-variant2')
+          | #2 - Critical FOFT with HTTP/2 Preload (V2)
+        p.description
+          | All web fonts are preloaded via the HTML &lt;link&gt; element (including the subsetted web font)
+        hr.navbar-divider
+        a(href='critical-foft-push')
+          | #3 - Critical FOFT with HTTP/2 Push
+        hr.navbar-divider
+        a(href='critical-foft-push-and-preload-variant1' )
+          | #4 - Critical FOFT with HTTP/2 Push & Preload (V1)
+        hr.navbar-divider
+        a(href='critical-foft-push-and-preload-variant2')
+          | #5 - Critical FOFT with HTTP/2 Push & Preload (V2)
+      hr
+      include layout/includes/components/limitations
+      hr
+      .tls
+        h2.subtitle.is-4 TLS Certificats
+        p
+          | You need valid TLS certificates for serving localhost over https. Certificats are included, but if they have expired please follow this guide.
+          | The strategies that are using HTTP/2 Server Push will not work if the certiciates in this demo has expired.
