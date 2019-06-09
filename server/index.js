@@ -5,13 +5,14 @@ const spdy = require('spdy'),
     path = require('path'),
     configs = require('./config'),
     createError = require('http-errors'),
-    compression = require('compression')
+    compression = require('compression'),
+    sassMiddleware = require('node-sass-middleware')
 const {setLocals} = require('./utils/locals')
 
  // Create Express Application
 const app = express()
-const config = configs[app.get('env')]
-const PORT = 3000
+// const config = configs[app.get('env')]
+const PORT = configs.port
 
 // Set the template engine to Pug
 app.set('view engine','pug' )
@@ -19,10 +20,22 @@ app.set('views', path.join(__dirname, '../app/views'))
 
 // Compress all responses
 app.use(compression())
-// Assets and public folder - TODO describe static
-app.use(express.static('app/vendor'))
+
+app.use(sassMiddleware({
+  /* Options */
+  src: path.join(__dirname, '../app/assets/styles/scss'),
+  dest: path.join(__dirname, '../app/assets/styles/'),
+  debug: true,
+  outputStyle: 'compressed',
+  prefix:  '/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
+
+
+// Assets and public folder
+// app.use(express.static('app/vendor'))
 app.use(express.static('app'))
 app.use(express.static('app/assets'))
+app.use('styles', express.static(path.join(__dirname, '../app/assets/styles')))
 
 
 setLocals(app)
@@ -30,9 +43,9 @@ setLocals(app)
 // Require the routes
 app.use(require('./routes')) // Route for index page and font-syntesis example
 app.use(require('./routes/no-font-loading-strategy')) // Route for no strategy
-app.use(require('./routes/critical-foft-push')) // Route for Critical FOFT Server Push
-app.use(require('./routes/critical-foft-push-and-preload')) // Route for Critical FOFT Server Push and Preload
-app.use(require('./routes/critical-foft-preload')) // Routes for Critical FOFT preload (including variant1, variant2 and variant3)
+app.use(require('./routes/critical-foft-preload')) // Routes for strategies #1 and #2
+app.use(require('./routes/critical-foft-push-and-preload')) // Routes for straetgy #3, #4 and #5
+
 
 // If no route matches, uses 404 error page
 app.use((req,res, next) => {
