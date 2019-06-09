@@ -1,0 +1,52 @@
+.main
+  h1 #{page}
+  .example
+    p This is a regular font style with font-weight 400.
+    p.bold This is bold 700 text.
+    p.italic This is emphasized italic.
+    p.bold.italic This is heavier and emphasized text.
+  .info
+    p
+      | Currently, the median loading time for a web page’s primary content to appear on
+      | the user’s mobile screen is 5.8 seconds#[span.sup 1]. Users expect a site to load within two
+      | seconds#[span.sup 2] and as a page load time goes from 1s to 5s, the probability of bounce
+      | increases by 90 percent#[span.sup 3].
+      | According to the HTTP Archive, 75 percent of websites are using web fonts#[span.sup 4 5].
+    .statistics
+      .pieChart
+        img(src='/images/svg/pieChart.svg')
+      .requestsMobile
+        .fontReq
+          img(src='/images/svg/4requests.svg')
+        .mobileIcon
+          img(src='/images/svg/mobile.svg')
+
+    p
+      br
+      | Optimizing the delivery and usage of external fonts can result in
+      | a faster render time for a site or web application. Even a small difference in load
+      | time, e.g., 100 milliseconds, makes an impact on revenue#[span.sup 6]. Hence, it becomes
+      | paramount to find a good strategy for improving the loading of font resources.
+      | The wide adoption of the HTTP/2 networking protocol in modern browsers
+      | makes Server Push a good candidate as a loading strategy. Gaining knowledge
+      | in how preload compare to HTTP/2 Server Push will be helpful for design-and
+      | performance-conscious web developers that want to use web fonts in their projects.
+
+  include font-stages
+  include limitations
+  //- .imgWrapper
+  //-   img(src='./images/run.jpg' alt='run')
+  //-   img(src='./images/car.jpg' alt='car')
+  //-   img(src='./images/cycle.jpg' alt='cycle')
+  hr
+  .references
+    h3 References
+    ol
+      li “Loading Speed”, Httparchive.org, 2019. [Online]. Available: https://httparchive.org/reports/loading-speed?start=2018_12_15&end=2019_02_01&view=list. [Accessed: 21- Mar- 2019].
+      li E. Fullerton, Performance Matters: 9 Key Consumer Insights. Akamai Technologies, 2014, p. 8.
+      li “The need for mobile speed: How mobile latency impacts publisher revenue”, 2016. [Online]. Available: https://www.thinkwithgoogle.com/intl/en-154/insights-inspiration/research-data/needmobile-speed-how-mobile-latency-impacts-publisher-revenue/. [Accessed: 28- Sep-2018].
+      li “HTTP Archive Mobile - Interesting Stats”, Mobile.httparchive.org, 2019. [Online]. Available: #[a(target='_blank' href='https://mobile.httparchive.org/interesting.php?a=All&l=Feb%201%202019') https://mobile.httparchive.org/interesting.php?a=All&l=Feb%201%202019]. [Accessed:21- Mar- 2019]
+      li “HTTP Archive - Interesting Stats”, Legacy.httparchive.org, 2019. [Online]. Available: #[a(target='_blank' href='https://legacy.httparchive.org/interesting.php?a=All&l=Feb%201%202019') https://legacy.httparchive.org/interesting.php?a=All&l=Feb%201%202019]. [Accessed:21- Mar- 2019]
+      li "Amazon sees a 1% decrease in revenue for every 100ms increase in load time.", Wpostats.com, 2018. [Online]. Available: https://wpostats.com/2015/10/29/amazon-1-percent.html. [Accessed: 01- 01- Oct- 2018].
+
+script(src='./js/vendor/prism/prism.js')

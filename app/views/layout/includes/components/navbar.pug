@@ -1,0 +1,41 @@
+- var currentRoute = 'currentRoute'
+
+nav.navbar(role='navigation' aria-label='main navigation')
+  .navbar-brand
+    a.navbar-burger.burger(role='button' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+  #navbarBasicExample.navbar-menu
+    .navbar-start
+      .navbar-item.has-dropdown.is-hoverable
+        a.navbar-link
+          | Strategies
+        .navbar-dropdown.is-right
+          a.navbar-item(href='critical-foft-preload-variant1' class= path? path.includes('critical-foft-preload-variant1') ? currentRoute : '' :'')
+            | #1 - Critical FOFT with HTTP/2 Preload (V1)
+          hr.navbar-divider
+          a.navbar-item(href='critical-foft-preload-variant2' class= path ? path.includes('critical-foft-preload-variant2') ? currentRoute : '' : '')
+            | #2 - Critical FOFT with HTTP/2 Preload (V2)
+          hr.navbar-divider
+          a.navbar-item(href='critical-foft-push' class= path ? path === ('/critical-foft-push') ? currentRoute : '' : '')
+            | #3 - Critical FOFT with HTTP/2 Push
+          hr.navbar-divider
+          a.navbar-item(href='critical-foft-push-and-preload-variant1' class= path ? path.includes('push-and-preload-variant1') ? currentRoute : '' : '')
+            | #4 - Critical FOFT with HTTP/2 Push & Preload (V1)
+          hr.navbar-divider
+          a.navbar-item(href='critical-foft-push-and-preload-variant2' class= path ? path.includes('push-and-preload-variant2') ? currentRoute : '' : '')
+            | #5 - Critical FOFT with HTTP/2 Push & Preload (V2)
+      a.navbar-item(href='/#about')
+        | About
+      a.navbar-item(href='/#how')
+        | How to
+
+
+    //- .navbar-end
+    //-   .navbar-item
+    //-     .buttons
+    //-       a.button.is-primary
+    //-         strong Sign up
+    //-       a.button.is-light
+    //-         | Log in
