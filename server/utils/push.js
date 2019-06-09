@@ -8,7 +8,7 @@ const pushFont = (response, fontSrc) => {
     response.push(fontSrc, {
         response: {
             'Content-Type': 'font/woff2',
-            'Cache-Control': 'max-age=300' // 'no-cache' --> must revalidate before using a cached copy, but we need push cache?
+            'Cache-Control': 'max-age=300'
         }
     }, (err, stream) => {
         if (err) return
@@ -20,12 +20,13 @@ const pushFont = (response, fontSrc) => {
 const pushStyles = (response, staticPath) => {
   // locate the stylesheet
   const styleFilePath = path.join(__dirname, `../../app/assets${staticPath}`);
-  const cssFile = fs.readFileSync(styleFilePath)
+  const cssFile = fs.readFileSync(styleFilePath + '.gz')
 
   response.push(staticPath, {    // usage: response.push('/styles/main.css')
       response: {
           'Content-Type': 'text/css',
-          'Cache-Control': 'max-age=300'
+          'Cache-Control': 'max-age=300',
+          'content-encoding' : 'gzip',
       }
   }, function(err, stream) {
       if (err) {
@@ -34,26 +35,6 @@ const pushStyles = (response, staticPath) => {
       stream.end(cssFile);
   });
 }
-
-
-// const pushStyles = (response, staticPath) => {
-//   // locate the gziped stylesheet
-//   const styleFilePath = path.join(__dirname, `../../static${staticPath}.gz`); // Gziped file
-//   const cssFile = fs.readFileSync(styleFilePath)
-
-//   response.push(staticPath, {    // usage: response.push('/styles/main.css')
-//       response: {
-//           'Content-Type': 'text/css',
-//           'Cache-Control': 'max-age=300',
-//           'content-encoding' : 'gzip',
-//       }
-//   }, function(err, stream) {
-//       if (err) {
-//           return;
-//       }
-//       stream.end(cssFile);
-//   });
-// }
 
 const pushScript = (response, filePath) => {
   // locate the gziped js file
