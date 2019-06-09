@@ -2,7 +2,7 @@ doctype html
 html(class='fonts' lang='en')
   head
     meta(charset='utf-8')
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     block pageTitle
     include includes/css/critical-styles-fonts
@@ -10,5 +10,7 @@ html(class='fonts' lang='en')
     include includes/css/stylesheets
     include includes/js/css-font-loading-api-script
   body
+    include includes/components/header
     block main
-    script(src='./js/vendor/prism/prism.js')
+    include includes/js/non-blocking
+
