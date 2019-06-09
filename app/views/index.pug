@@ -1,6 +1,9 @@
 extends layout/index
 block pageTitle
   title Resource prioritization approaches for custom fonts
+block preload
+  include layout/includes/preload/subset-fonts
+  include layout/includes/preload/all-fonts
 block main
   .index
     .main
@@ -23,9 +26,6 @@ block main
         h2.subtitle.is-2 How to
 
         ol
-          li Open this demo in Google Chrome Web browser
-            ul
-              li If you haven't already - Fait le!
           li Go to a strategy of your choice
             ul
               li See #[a(href='/#strategies') Strategies]
@@ -50,6 +50,9 @@ block main
                   li If text is orange: This is when the text is displayed in a Fallback font.
                   li If text is green: This is when the subset web font is rendered to the user
                   li If text is black: This is when all the web fonts are rendered to the user.
+          li Compare it to using no strategy
+            ul
+              li Go to #[a(href='/no-font-loading-strategy') No font loading strategy] and see how it performs when doing a network trace.
           li If you are totally new to DevTools check out these two exellent tutorials
             ul
               li #[a(href="https://developers.google.com/web/tools/chrome-devtools/network/") Inspect Network Activity In Chrome DevTools]
@@ -84,5 +87,7 @@ block main
       .tls
         h2.subtitle.is-4 TLS Certificats
         p
-          | You need valid TLS certificates for serving localhost over https. Certificats are included, but if they have expired please follow this guide.
+          | You need a self-signed TLS certificate for serving localhost over https.
+          | If the certificate included in this repo has expired,
+          | you can generate a new certificate using #[a(target="_blank" href="https://www.npmjs.com/package/tls-keygen") tls-keygen].
           | The strategies that are using HTTP/2 Server Push will not work if the certiciates in this demo has expired.
