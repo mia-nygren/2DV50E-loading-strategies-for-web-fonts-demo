@@ -3,33 +3,38 @@
 ### About
 This repository is a supplement to my degree project in Computer Science (2DV50E). It's primary purpose is to demonstrate how resource prioritization approaches like HTTP/2 Preload and HTTP/2 Push can be used to optimize the delivery of web fonts for first-time visitors.
 
-The selected strategies builds upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article [A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES] 
+The selected strategies build upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article [A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES] 
 
 
-## Abstract - Thesis
-According to the HTTP Archive, 75% of websites are using web fonts. Multiple
-conditions have to be met before modern web browsers like Chrome, Firefox
-and Safari decide to download the web fonts needed on a page. As a result, web
-fonts are late discovered resources that can delay the First Meaningful Paint
-(FMP). Improving the FMP is relevant for the web industry, particularly for
-performance-conscious web developers. This paper gives insight into how the
-resource prioritization approaches HTTP/2 Preload and HTTP/2 Server Push can
-be used to optimize the delivery of web fonts for first-time visitors. Five font
-loading strategies that use HTTP/2 Server Push and/or Preload were implemented
-on replicas of the landing pages from five real-world websites. The font loading
-strategies were evaluated against each other, and against the non-optimized
-version of each landing page. All the evaluated font loading strategies in this
-degree project improved the time it took to deliver the first web font content to
-the user’s screen, resulting in a faster FMP. It was also discovered that HTTP/2
-Server Push, on its own, is not a more performance efficient resource prioritization
-approach than HTTP/2 Preload when it comes to delivering web font content to
-the client. Further, HTTP/2 Server Push and HTTP/2 Preload appears to be more
-efficient when used together, in the context of optimizing the delivery of web font
-content. However, all conclusions in this paper are based on the results gathered
-from testing the font loading strategies in an emulated environment and are yet to
-be confirmed on actual mobile devices with real network conditions. 
+## Thesis
+More information about the strategies and how they performed can be found in my thesis:  
+*Web Font Optimization for Mobile Internet Users*  
 
-Link to full thesis: (available soon)
+### Abstract
+> According to the HTTP Archive, 75% of websites are using web fonts. Multiple
+>  conditions have to be met before modern web browsers like Chrome, Firefox
+>  and Safari decide to download the web fonts needed on a page. As a result, web
+>  fonts are late discovered resources that can delay the First Meaningful Paint
+>  (FMP). Improving the FMP is relevant for the web industry, particularly for
+>  performance-conscious web developers. This paper gives insight into how the
+>  resource prioritization approaches HTTP/2 Preload and HTTP/2 Server Push can
+>  be used to optimize the delivery of web fonts for first-time visitors. Five font
+>  loading strategies that use HTTP/2 Server Push and/or Preload were implemented
+>  on replicas of the landing pages from five real-world websites. The font loading
+>  strategies were evaluated against each other, and against the non-optimized
+>  version of each landing page. All the evaluated font loading strategies in this
+>  degree project improved the time it took to deliver the first web font content to
+>  the user’s screen, resulting in a faster FMP. It was also discovered that HTTP/2
+>  Server Push, on its own, is not a more performance efficient resource prioritization
+>  approach than HTTP/2 Preload when it comes to delivering web font content to
+>  the client. Further, HTTP/2 Server Push and HTTP/2 Preload appears to be more
+>  efficient when used together, in the context of optimizing the delivery of web font
+>  content. However, all conclusions in this paper are based on the results gathered
+>  from testing the font loading strategies in an emulated environment and are yet to
+> be confirmed on actual mobile devices with real network conditions.   
+   
+
+
 
 
 ## Instructions
@@ -73,11 +78,11 @@ HTTP/2 Server Push is inconsistent across browsers, and this has not been addres
 
 ## Development 
 
-**TLS certificats**  
+**TLS certificate**  
 If the certificate included in this repo has expired, you can generate a new certificate using [tls-keygen](https://www.npmjs.com/package/tls-keygen).
 
 **Pug**  
-This project uses the template engine pug, for dynamic and reusable HTML code that is cleaner and easier to read. 
+This project uses the template engine pug, for dynamic and reusable HTML code that is cleaner and easier to read.  
 Visit https://pugjs.org/ for details.  
 
 **ESLint**   
