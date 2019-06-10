@@ -1,16 +1,18 @@
 # Loading Strategies for Web Fonts -  Demo
 
 ### About
-This repository is a supplement to my degree project in Computer Science (2DV50E). It's primary purpose is to demonstrate how resource prioritization approaches like HTTP/2 Preload and HTTP/2 Push can be used to optimize the delivery of web fonts for first-time visitors.
+This repository is a supplement to my Bachelor's degree project in Computer Science (2DV50E). It's primary purpose is to demonstrate how resource prioritization approaches like HTTP/2 Preload and HTTP/2 Push can be used to optimize the delivery of web fonts for first-time visitors.
 
 The selected strategies build upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article [A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES] 
 
 
 ## Thesis
 More information about the strategies and how they performed can be found in my thesis:  
-*Web Font Optimization for Mobile Internet Users*  
+*Web Font Optimization for Mobile Internet Users*  (link avilalbe soon)
 
 ### Abstract
+<div style="text-align: justify"> 
+
 > According to the HTTP Archive, 75% of websites are using web fonts. Multiple
 >  conditions have to be met before modern web browsers like Chrome, Firefox
 >  and Safari decide to download the web fonts needed on a page. As a result, web
@@ -31,7 +33,8 @@ More information about the strategies and how they performed can be found in my 
 >  efficient when used together, in the context of optimizing the delivery of web font
 >  content. However, all conclusions in this paper are based on the results gathered
 >  from testing the font loading strategies in an emulated environment and are yet to
-> be confirmed on actual mobile devices with real network conditions.   
+> be confirmed on actual mobile devices with real network conditions. 
+</div>
    
 
 
