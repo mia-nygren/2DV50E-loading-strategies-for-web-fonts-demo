@@ -4,13 +4,13 @@
     "description": "Font loading strategies ",
     "main": "index.js",
     "scripts": {
-        "start": "node",
+        "start": "node server",
         "dev": "set NODE_ENV=development&&nodemon server",
         "eslint": "eslint",
         "gzip": "node server/utils/gzip.js"
     },
     "repository": {
-        "url": "https://github.com/mia-nygren/font-loading-strategies",
+        "url": "https://github.com/mia-nygren/2DV50E-loading-strategies-for-web-fonts-demo",
         "type": "git"
     },
     "license": "MIT",
