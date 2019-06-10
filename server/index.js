@@ -9,7 +9,7 @@ const spdy = require('spdy'),
     sassMiddleware = require('node-sass-middleware')
 const {setLocals} = require('./utils/locals')
 
- // Create Express Application
+// Create Express Application
 const app = express()
 // const config = configs[app.get('env')]
 const PORT = configs.port
@@ -30,13 +30,10 @@ app.use(sassMiddleware({
   prefix:  '/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
 }));
 
-
 // Assets and public folder
-// app.use(express.static('app/vendor'))
 app.use(express.static('app'))
 app.use(express.static('app/assets'))
 app.use('styles', express.static(path.join(__dirname, '../app/assets/styles')))
-
 
 setLocals(app)
 
