@@ -3,9 +3,9 @@ const zlib = require('zlib'),
       path = require('path'),
       { pipeline } = require('stream');
 
-const mainCSS = path.join(__dirname, '../../app/assets/styles/main.css')
+const mainCSS = path.join(__dirname, '../../app/assets/styles/styles.css')
 const prismCSS = path.join(__dirname, '../../app/assets/vendor/prism/prism.css')
-const bulmaCSS = path.join(__dirname, '../../app/assets/vendor/bulma/bulma.css')
+const bulmaCSS = path.join(__dirname, '../../app/assets/vendor/bulma/bulma.min.css')
 
 const gzipFile = (filePath => {
   pipeline(

@@ -7,5 +7,21 @@
 }
 
 .demoTitle {
+  display:block;
   font-style: italic;
+  padding:20px !important;
+  padding-left:25px !important;
+  color:#363636;
+  line-height: 1.8em;
+  height:70px !important;
+}
+
+
+@media(max-width:409px) {
+  .demoTitle {
+    width:12em;
+    line-height:1.2 !important;
+    padding:15px 15px 10px 25px!important;
+
+  }
 }
