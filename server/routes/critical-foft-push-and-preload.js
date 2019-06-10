@@ -6,11 +6,11 @@ const {pushStyles, pushFont} = require('../utils/push')
 
 const pushResources = (res) => {
    // Push Source Sans Pro Regular subset
-   pushFont(res, res.app.locals.sourceSansPro.subset) // XKB
+   pushFont(res, res.app.locals.sourceSansPro.subset)
 
    // Push CSS
-   pushStyles(res, '/vendor/bulma/bulma.css')  // 10KB  -- GZipped
-   pushStyles(res, '/styles/main.css') //  GZipped!
+   pushStyles(res, '/vendor/bulma/bulma.min.css')  //  GZipped
+   pushStyles(res, '/styles/styles.css') //  GZipped!
 }
 
 /**
@@ -34,7 +34,7 @@ router.get('/critical-foft-push-and-preload-variant1', function(req, res) {
   pushResources(res)
 
    res.render('critical-foft-push-and-preload-variant1', {
-     page: 'Critical FOFT HTTP/2 Push and Preload (Variant 1)',
+     page: 'Critical FOFT HTTP/2 Push and Preload (V1)',
      path: req.path
    })
 });
@@ -42,7 +42,7 @@ router.get('/critical-foft-push-and-preload-variant2', function(req, res) {
   pushResources(res)
 
    res.render('critical-foft-push-and-preload-variant2', {
-     page: 'Critical FOFT HTTP/2 Push and Preload (Variant 2)',
+     page: 'Critical FOFT HTTP/2 Push and Preload (V2)',
      path: req.path
    })
 });

@@ -11,8 +11,8 @@ router.get('/', function(req, res) {
   pushFont(res, res.app.locals.sourceSansPro.subset)
 
   // Push CSS
-  pushStyles(res, '/vendor/bulma/bulma.css')  // 10KB  -- GZipped
-  pushStyles(res, '/styles/main.css') //  GZipped!
+  pushStyles(res, '/vendor/bulma/bulma.min.css')  // GZipped
+  pushStyles(res, '/styles/styles.css') //  GZipped!
   return res.render('index')
 })
 
