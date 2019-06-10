@@ -25,9 +25,9 @@ app.use(sassMiddleware({
   /* Options */
   src: path.join(__dirname, '../app/assets/styles/scss'),
   dest: path.join(__dirname, '../app/assets/styles/'),
-  debug: true,
+  debug: false,
   outputStyle: 'compressed',
-  prefix:  '/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+  prefix:  '/styles'
 }));
 
 // Assets and public folder
