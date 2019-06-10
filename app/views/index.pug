@@ -15,7 +15,8 @@ block main
           p
             | This demo is a supplement to my degree project in Computer Science. It's primary purpose is to demonstrate how resource prioritization approaches
             | like HTTP/2 Preload and HTTP/2 Push can be used to optimize the delivery of web fonts for first-time visitors.
-            | The selected strategies builds upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article [A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES]
+            | The selected #[a(href='/#strategies') strategies] build upon a font loading strategy called Critical Flash Of Faux Text, that Zach Leatherman writes about in his article
+            | #[a(href='https://www.zachleat.com/web/comprehensive-webfonts/' target='_blank') A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES].
           p  The typeface that was used in this demo is called Source Sans Pro.
 
       include layout/includes/components/font-stages
@@ -34,8 +35,8 @@ block main
               li Right click on the page and choose 'Inspect'
           li Go to the Networks tab
             ul
-              li Set the network throttling profile to Fast 3G.
-              li Make sure capture screenshots is activated.
+              li Set the network throttling profile to Fast 3G
+              li Make sure capture screenshots is activated
           li Make a Hard Reload of the page
             ul
               li ctrl + shift + R (Windows) or cmd + shift + R (Mac)
@@ -43,20 +44,20 @@ block main
             ul
               li In the networks tab you can see details about how the resources loaded
                 ul
-                  li The initiator column is useful for seeing what initiated the request.
-                  li If a resource was pushed the initiator will say Push.
+                  li The initiator column is useful for seeing what initiated the request
+                  li If a resource was pushed the initiator will say Push
               li Doubleclick on a screenshot to get a larger preview
                 ul
-                  li If text is orange: This is when the text is displayed in a Fallback font.
+                  li If text is orange: This is when the text is displayed in a Fallback font
                   li If text is green: This is when the subset web font is rendered to the user
-                  li If text is black: This is when all the web fonts are rendered to the user.
+                  li If text is black: This is when all the web fonts are rendered to the user
           li Compare it to using no strategy
             ul
-              li Go to #[a(href='/no-font-loading-strategy') No font loading strategy] and see how it performs when doing a network trace.
+              li Go to #[a(href='/no-font-loading-strategy') No font loading strategy] and see how it performs when doing a network trace
           li If you are totally new to DevTools check out these two exellent tutorials
             ul
-              li #[a(href="https://developers.google.com/web/tools/chrome-devtools/network/") Inspect Network Activity In Chrome DevTools]
-              li #[a(href="https://developers.google.com/web/tools/chrome-devtools/") Chrome DevTools]
+              li #[a(target='_blank' href="https://developers.google.com/web/tools/chrome-devtools/network/") Inspect Network Activity In Chrome DevTools]
+              li #[a(target='_blank' href="https://developers.google.com/web/tools/chrome-devtools/") Chrome DevTools]
 
       hr
 
@@ -75,17 +76,35 @@ block main
         hr.navbar-divider
         a(href='critical-foft-push')
           | #3 - Critical FOFT with HTTP/2 Push
+        p.description
+          |  The subset roman web font and render-critical resources (CSS and JS) were pushed from the server to
+          | the client. (No fonts were preloaded).
         hr.navbar-divider
         a(href='critical-foft-push-and-preload-variant1' )
           | #4 - Critical FOFT with HTTP/2 Push & Preload (V1)
+        p.description
+          | This strategy combines push with preload. The subset roman web font
+          | was first pushed and then preloaded (via the HTML &lt;link&gt; element).
+          | Render-critical resources (CSS and JS) were pushed from the server
+          | to the client. No other web fonts were preloaded.
         hr.navbar-divider
         a(href='critical-foft-push-and-preload-variant2')
           | #5 - Critical FOFT with HTTP/2 Push & Preload (V2)
+        p.description
+          | This strategy is the same as strategy #4 with the addition that all web fonts
+          | were preloaded, including the subset roman font file.
+        hr.navbar-divider
+        p.nonOpt Non-optimized version
+        hr.navbar-divider
+        a.noStrat(href='no-font-loading-strategy')
+          | No font loading strategy - Lazy-loading
+        p.description
+          | This is the non-optimized version of this demo, were no font loading strategies were used.
       hr
       include layout/includes/components/limitations
       hr
       .tls
-        h2.subtitle.is-4 TLS Certificats
+        h2.subtitle.is-4 TLS Certificate
         p
           | You need a self-signed TLS certificate for serving localhost over https.
           | If the certificate included in this repo has expired,
