@@ -64,7 +64,7 @@ More information about the strategies and how they performed can be found in my 
    $ npm start
    ```
 
-1. Open <http://localhost:8000> in Google Chrome to view the demo  
+1. Open <https://localhost:8000/> in Google Chrome to view the demo  
     *You can change the port in server/config/index.js*
 
 ## Limitations

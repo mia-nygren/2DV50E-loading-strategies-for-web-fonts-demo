@@ -69,6 +69,8 @@ const server = spdy.createServer(options, app)
 
 server.listen(PORT, () => {
     console.log(`Server started on port ${server.address().port}`)
+    console.log('Navigate to https://localhost:8000/ in Google Chrome to view the demo');
+
 });
 
 module.exports = app
