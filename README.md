@@ -7,7 +7,7 @@ The selected strategies build upon a font loading strategy called Critical Flash
 
 
 ## Thesis
-More information about the strategies and how they performed can be found in my thesis:  
+More information about the strategies and how they perform can be found in my thesis:  
 *Web Font Optimization for Mobile Internet Users*  (link available soon)
 
 ### Abstract
