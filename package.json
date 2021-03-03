@@ -19,7 +19,7 @@
         "express": "^4.14.1",
         "http-errors": "^1.7.1",
         "https": "^1.0.0",
-        "pug": "^2.0.3",
+        "pug": "^3.0.1",
         "spdy": "^3.4.7"
     },
     "devDependencies": {
